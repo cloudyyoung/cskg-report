@@ -1,0 +1,141 @@
+\documentclass[sigconf]{acmart}
+
+%% \BibTeX command to typeset BibTeX logo in the docs
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    \normalfont B\kern-0.5em{\scshape i\kern-0.25em b}\kern-0.8em\TeX}}}
+
+%% Remove ACM info
+\settopmatter{printacmref=false}
+\setcopyright{none}
+\renewcommand\footnotetextcopyrightpermission[1]{}
+\pagestyle{plain}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ----------- Packages ----------- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xspace}
+%\usepackage[table,xcdraw]{xcolor}
+\usepackage[inline]{enumitem}
+%\usepackage[]{algorithm2e}
+\usepackage{ifthen}
+\usepackage{fancyhdr}
+\usepackage{comment}
+\usepackage[normalem]{ulem}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{algcompatible}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{threeparttable}
+\usepackage{textcase}
+\usepackage{minted}
+\usepackage{etoolbox}
+
+
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows, arrows.meta}
+\usepackage{lipsum,adjustbox}
+
+\usepackage{multirow}
+
+\usepackage{blindtext}
+\usepackage{scrextend}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ----------- Theorems ----------- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{pilotStudy}{Pilot Study}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ------ Basic editorial format ------ %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ie}{{\it i.e.,}\xspace} 
+\newcommand{\eg}{{\it e.g.,}\xspace} 
+\newcommand{\Eg}{{\it E.g.,}\xspace} 
+\newcommand{\etal}{{\it et al.}\xspace} 
+\renewcommand{\sectionautorefname}{Section}
+\def\definitionautorefname{Definition}
+
+\BeforeBeginEnvironment{minted}{\vskip 10pt}
+\AfterEndEnvironment{minted}{\vskip 10pt}
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ------ Paper Info ------ %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{A Knowledge Graph Approach to Software Code Smells Detection in Python}
+
+\author{By Yunfan Yang}
+\author{Supervised by Jon Rokne}
+ \affiliation{%
+   \institution{University of Calgary}
+   \city{Calgary}
+   \state{AB}
+   \country{Canada}
+ }
+
+% \author[1]{Author One}
+% \author[2]{Author Two}
+
+% \affil[1]{Department of Computer Science, University One}
+% \affil[2]{Department of Physics, University Two}
+
+% \affil[1]{\textit{author1@email.com}}
+% \affil[2]{\textit{author2@email.com}}
+
+\begin{abstract}
+In the rapidly evolving landscape of software development, maintaining code quality is paramount. This paper introduces an innovative approach for detecting software code smells in Python. We propose a novel methodology for code analysis that leverages knowledge graphs, a powerful tool for representing and analyzing data relationships, for identifying and classifying code smells. The approach transcends traditional static analysis by integrating semantic understanding of code, thereby enhancing the detection of subtle yet critical anomalies that are often overlooked. Through rigorous evaluation on diverse Python codebases, the approach's efficacy in accurately identifying code smells is demonstrated, thereby contributing to improved code development, maintainability and reduced technical debt. This research provides a new direction in the application of knowledge graphs for software quality assurance.
+\end{abstract}
+
+\maketitle
+
+
+% TikZ Presets
+\tikzstyle{component} = [rectangle, minimum width=3cm, minimum height=1.2cm, align=center, text centered, draw=black, fill=cyan!20]
+\tikzstyle{library} = [rectangle, minimum width=2cm, minimum height=0.8cm, align=center, text centered, draw=black, fill=yellow!20]
+\tikzstyle{database} = [rectangle, minimum width=2cm, minimum height=0.8cm, align=center, text centered, draw=black, fill=orange!20]
+\tikzstyle{intermediate} = [rectangle, minimum width=1.4cm, minimum height=0.8cm, align=center, text centered, draw=black, fill=red!20]
+
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\tikzstyle{on arrow}=[fill=white, inner sep=2pt, midway, align=center, font=\scriptsize]
+
+\tikzstyle{driver} = [rectangle, rounded corners, minimum width=2cm, minimum height=0.8cm, align=center, text centered, draw=black, fill=magenta!20]
+\tikzstyle{flow} = [->, thick, magenta, shorten >=1pt]
+
+
+
+% Separate LaTeX file for each section.  Please keep the filenames as they are unless discussed with other authors
+\input{intro}
+\input{related}
+\input{method}
+% \input{design}
+\input{imple}
+\input{eval}
+\input{conclusion}
+
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{main}
+
+\input{appendix-a}
+
+
+\end{document}

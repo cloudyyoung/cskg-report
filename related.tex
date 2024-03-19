@@ -1,0 +1,46 @@
+\section{Related Work}
+\label{sec:related}
+
+\subsection{Code Smells}
+"Code smells," also known as "bad smells in code," were first identified by Fowler and Beck in their 1999 book, \textit{Refactoring: Improving the Design of Existing Code} \cite{Martin_1999}, where they described a total of 22 such smells and various of refactoring techniques. This foundational work sparked further research in the area, leading to the identification of numerous additional smells by various researchers \cite{Menshawy_Yousef_2021} and various taxonomies \cite{Mäntylä_Lassenius_2006}\cite{Sabir_Palma_Rasool_Guéhéneuc_Moha_2018}\cite{Martin_2008}, including Fowler \etal themselves, who released a second edition of the book \cite{Martin_2018} nineteen years later.
+
+Building upon this evolving understanding of code smells, there wasn't a comprehensive, aggregated source that consolidates all the latest information on code smells. Recent work by Jerzyk \etal stands out in this context, compiles a detailed catalog of code smells and introduces new taxonomies, offering researchers a unified data system to access and facilitating easier access and understanding \cite{Jerzyk_2023}. 
+
+Given that the definition of distinct code smells proposed by Fowler \etal is mainly descriptive, pinpointing the exact threshold for identifying a code smell becomes challenging. Take, for instance, the concept of \textit{Feature Envy}. As described, it typically arises when a function in one module interacts more extensively with functions or data in another module than with those in its own module \cite{Martin_2018}. However, this definition lacks clarity on what constitutes "more" time, leaving it ambiguous as to how much interaction is excessive. To address this, Zhang \etal have developed an improved set of pattern-based metrics for code smells, effectively building upon and formalizing the original definitions \cite{Zhang_2008}.
+
+In addition to these definition developments, various code smells detection techniques have also been discovered in the past, as stated by AbuHassan \etal\cite{AbuHassan_Alshayeb_Mohammad_Ghouti_2020}. Several code smells detection tools are developed and examined by Paiva \etal, with the discovery that the effectiveness of these tools varies across different contexts \cite{Paiva_2017}. In the most recent studies, two primary methods for detecting code smells, traditional machine learning and deep machine learning have been used.
+
+% Machine Learning
+\subsection{Machine Learning}
+Machine learning, characterized by its algorithms that learn from data without explicit programming tailored to this data, has long been applied to code smell detection. Typically employing supervised learning techniques, these methods use a set of predictors to infer the presence and/or severity of code smells. 
+
+A critical analysis by Nucci \etal\cite{Nucci_Dario_Palomba_2018} highlights the effectiveness of these approaches, though they also underscore limitations, particularly the reliance on threshold settings to distinguish between smelly and non-smelly code instances; incorrect threshold selection can lead to unreliable detection, marked by false positives or negatives. 
+
+Furthermore, Nucci \etal\cite{Nucci_Dario_Palomba_2018} note that most previous studies have focused on datasets with a single type of code smell, which does not reflect the complexity of real-world codebases where multiple smell types are present. This limitation becomes evident when confronting more intricate datasets, as demonstrated in their replication study.
+
+
+% Deep learning
+\subsection{Deep Learning}
+
+In parallel with traditional methods, deep learning, especially neural networks, has made significant advancements in this field. Malhotra \etal\cite{Malhotra_Jain_Kessentini_2023} report a surge in deep learning-based studies, especially post-2019. Distinct from traditional machine learning, deep learning approaches, as described by Lin \etal\cite{Lin_Fu_Chen_Li_2021}, eliminates the need for manual feature engineering, enhancing its efficiency and accuracy. 
+
+A notable development has been the application of Convolutional Neural Networks (CNNs) in detecting code smells, with studies by Lin \etal \cite{Lin_Fu_Chen_Li_2021}, Zhang \etal \cite{Zhang_Kishi_2023}, and others showcasing their ability to handle large datasets with impressive reliability. 
+
+However, these methods are not without challenges. Deep learning models, especially complex ones, often operate as "black boxes," making it difficult to understand the rationale behind their predictions, a crucial aspect for developers and software engineers \cite{Malhotra_Jain_Kessentini_2023}. Additionally, these models do not truly understand code, missing out on deeper semantics and relationships in software development. This lack of semantic understanding and generalization can lead to false positives or missed detections when introduced to new coding patterns or languages.
+
+Furthermore, the effectiveness of deep learning in large-scale software projects is not yet fully established. As pointed out by Malhotra \etal\cite{Malhotra_Jain_Kessentini_2023}, many studies tend to develop new models without leveraging existing ones, and as software complexity increases, there's a growing need for robust evaluation measures.
+
+While deep learning techniques have shown promise in the realm of code smell detection, their limitations in interpretability, semantic understanding, generalization, and effectiveness in \textit{large-scale} projects necessitate further exploration and improvement.
+
+% Transition
+Given the identified limitations within machine and deep learning methodologies, particularly concerning interpretability and semantic comprehension, there is a discernible shift in research focus towards exploring alternative methodologies that can provide enhanced transparency and contextual understanding. It is in this context that Knowledge Graphs have garnered significant attention in recent research endeavors.
+
+% Knowledge Graph
+\subsection{Knowledge Graph}
+Knowledge Graphs (KGs), introduced by Google in 2012, offered a significant development in data representation \cite{Singhal_2012}. The knowledge is encoded by relationship between pairwise entities; each knowledge item has been represented by a tuple of two nodes, representing the entities and edges, representing the knowledge that the two entities are related. The entities (nodes) and the relationships (edges) together form knowledge graphs that can be used to represent create a structured representation of real-world knowledge, with nodes representing entities and edges depicting relationships \cite{Hogan_2021}. 
+
+KGs have rapidly gained prominence in various AI applications, includes Recommender Systems \cite{Guo_Zhuang_Qin_Zhu_Xie_Xiong_He_2022}, Question-Answering Systems \cite{Huang_Zhang_Li_Li_2019}, Image Recognition System \cite{Chen_Xie_Wang_Li_2021}, due to their ability to organize complex information. Furthermore, they have been employed in detecting Enterprise Architecture smells, facilitating the graph-based analysis of enterprise architecture models \cite{Smajevic_Hacks_Bork_2021}. Additionally, Nayak \etal \cite{Nayak_Kesri_Dubey_2020} highlight the use of KGs in the automated generation of software-related components, and Wang \etal \cite{Wang_Sun_Wang_Duan_Li_2017} provide a more comprehensive usage of KGs in bug resolution. These applications underscoring the versatility and expanding applications of KGs in different domains of software engineering.
+
+Having reviewed the related works, it's evident that while existing methodologies in code smells detection, particularly those involving machine learning and knowledge graphs, offer promising avenues, there still exists a gap in practical application, especially in complex, large-scale software systems. This underscores the need for an innovative approach that not only leverages the strengths of these existing methods but also addresses their limitations. 
+
+% In the following section, we propose a novel framework that integrates the insights gained from our literature review, aiming to effectively detect code smells in large codebases using knowledge graphs. This approach is designed to overcome specific challenges identified in prior studies, offering a more robust and scalable solution.

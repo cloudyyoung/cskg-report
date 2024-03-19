@@ -1,0 +1,27 @@
+\subsection{Base Class depends on Subclass}
+
+\begin{description}[align=left, labelwidth=2.4cm]
+  \item [Obstruction] Object Oriented Abusers
+  \item [Occurence] Interfaces
+  \item [Expanse] Between Classes
+\end{description}
+
+This case is originally proposed by Martin in his 2008 book \cite{Martin_2008}. It describes a situation where a base class is designed in a way that it requires knowledge about its subclasses, leading to violation of the principle of modular and independent design. This implementation approach should be avoided because it ideally allows child classes to be deployable and maintainable independently of their parent class, promoting modularity. When a subclass undergoes changes, it should not force a change of its superclass, thereby reducing the maintenance effort and scope needed \cite{Jerzyk_2023}. This code smell is often associated with the \textit{Shotgun Surgery}, which occurs when a single change affects multiple parts of a system \cite{Jerzyk_2023}. It may be considered an early indicator of a code smell that, if left unaddressed, often evolves into the latter.
+
+
+To adapt to a definition that aligns with the methodology of this work, it suggests that this code smell occurs when a parent class has dependency on its child class, as defined in \autoref{def:base-class}.
+
+\begin{definition}
+A relationship exists between a parent class and its child class, other than an inheritance from the parent to the child class.
+\label{def:base-class}
+\end{definition}
+
+
+\begin{minted}{cypher}
+MATCH (parent:Class)-[r]->(child:Class)
+WHERE NOT type(r) = "INHERITS" 
+      AND (parent)-[:INHERITS]->(child)
+RETURN parent.name AS parent_class, 
+       child.name AS child_class, 
+       type(r) AS relationship_type
+\end{minted}

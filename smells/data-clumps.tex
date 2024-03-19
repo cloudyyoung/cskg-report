@@ -1,0 +1,46 @@
+\subsection{Data Clumps}
+
+\begin{description}[align=left, labelwidth=2.4cm]
+  \item [Obstruction] Bloaters
+  \item [Occurence] Data
+  \item [Expanse] Between Classes 
+\end{description}
+
+
+When groups of variables frequently appear together throughout a codebase, it would be more efficiently managed as a single object \cite{Martin_2018}. The concept suggests that data items consistently used together, yet not organized as a unified entity, should be encapsulated within a class to improve convenience and coherence. An example would be the coordinate \texttt{x} and \texttt{y} values held separately rather than in a \texttt{Coordinate} object.
+
+
+Zhang \etal reinterpreted the smell's definition into a pattern-based definition, which is divided into two situations \cite{Zhang_2008}. Following this framework, definitions suitable for the context of this work are presented, as detailed in \autoref{def:data-clumps-1} and \ref{def:data-clumps-2}.
+
+\begin{definition}
+More than three data fields consistently appear together across multiple classes, and these fields share the same signatures, \ie identical names, data types and access\footnote{Original definition refers to "access modifiers", but Python does not strictly have access modifier. Instead, Python employs name mangling, \ie the underscore symbol, to indicate access control levels for class data members or member functions. Therefore, the term "access" is adopted.}, regardless of their arrangement.
+\label{def:data-clumps-1}
+\end{definition}
+
+
+\begin{definition}
+More than three input parameters consistently appear together in the declarations of multiple methods, and these parameters share identical signatures, \ie identical names and data types, regardless of their arrangement.
+\label{def:data-clumps-2}
+\end{definition}
+
+
+\textit{Frequent itemset mining} is a data mining process aimed at finding recurrent patterns, or itemsets, in a dataset where the occurrence of these itemsets exceeds a user-specified minimum support threshold \cite{Agrawal_1996}. In this context, a "transaction" refers to a single record or instance in the dataset that contains a set of items \cite{Toivonen_2010}. For example, in a market basket analysis, a transaction would represent a customer's shopping basket, comprising various products purchased together during a single shopping trip. Each item in the basket is equivalent to an item in the set, and the collection of all items bought together forms the transaction. 
+
+The \textit{Apriori algorithm}, introduced by Agrawal and Srikant in 1996 \cite{Agrawal_1996}, is a classic algorithm used for frequent itemset mining. It operates on the principle that all subsets of a frequent itemset must also be frequent, known as the \textit{Apriori property}. It iteratively expands candidate itemsets, starting from individual items and progressively combining them, while pruning itemsets below the minimum support threshold. This iterative expansion and pruning continue until no further frequent itemsets can be identified, efficiently narrowing the search space and reducing computational effort \cite{Toivonen_2010}. 
+
+The concepts outlined in the above definitions can be addressed though \textit{frequent itemset mining}, particularly for identifying recurring collections of Variable entities within certain entities. The approach starts by aggregating all Variable sets, and then utilizes the \textit{Apriori Algorithm} to identify those sets that frequently occur:
+
+\begin{minted}{cypher}
+MATCH (c:Class)-[:CONTAINS]->(v:Variable)
+RETURN c.name AS class_name, 
+       COLLECT(v.name) AS variables
+
+MATCH (f:Function)-[:TAKES]->(v:Variable)
+RETURN f.name AS function_name, 
+       COLLECT(v.name) AS variables
+\end{minted}
+
+Upon constructing the subgraph, the next phase involves utilizing the \textit{Apriori Algorithm} to analyze these structured sets of variables. Each class, along with its functions and variables, is treated as a unique transaction. The algorithm is then applied to identify frequent patterns of variable usage across these transactions. The minimum support threshold is crucial here; it determines the minimum frequency at which a particular set of variables must appear across all classes to be considered a frequent itemset.
+
+In this method, it is possible to uncover not only the most commonly used variables but also how these variables are shared and utilized among different classes and functions, revealing potential areas for optimization and refactoring within the codebase.
+

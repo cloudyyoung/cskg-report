@@ -1,0 +1,263 @@
+\section{Methodology}
+\label{sec:method}
+
+% We focus on a range of common code smells as identified by Fowler \etal\cite{Martin_1999}, and our approach is oriented towards developing a scalable and interpretable framework suitable for diverse and complex codebases.
+
+% The methodology of this research is structured to address the challenge of detecting software code smells using Knowledge Graphs (KGs). It encompasses a series of steps, each designed to progressively develop and refine the tools and techniques necessary for effective code smell detection in large-scale software projects.
+
+This section outlines the systematic approach employed in this research to address the challenge of detecting software code smells using Knowledge Graphs (KGs). The methodology encompasses several distinct but interrelated stages, each contributing towards the development of a comprehensive, efficient, and interpretable code smells detection framework. It consists of the following two stages:
+
+\begin{description}
+    \item[Stage I.] Since the use of knowledge graphs for code smells detection is novel application of knowledge graphs, the first step for the project is to identify a suitable knowledge base tool for implementing a knowledge graph for software code.
+    \item[Stage II.] Develop on algorithm for finding out code smells using knowledge graphs. The data used to test this algorithm involves a selection of relative code smells from the \textit{Code Smells Catalog} by Jerzyk \etal\cite{Jerzyk_2023}, which essentially includes all smells from the textbook \textit{Refactoring: Improving the Design of Existing Code, Second Edition} (Chapter 3) by Fowler \etal\cite{Martin_2018}.
+\end{description}
+
+
+The selection of large-scale software projects is prioritized as the primary data source,  detailed in \autoref{tab:codebases}. These codebases are selected from GitHub, and due to their complex architectures and extensive use of diverse programming paradigms, making them ideal for studying the effectiveness of knowledge graph-based code smell detection. The selection criteria include projects with a substantial codebase  and active development histories, as detailed in \autoref{tab:codebases_criteria}. We ensure these projects are sourced from reputable, open-source repositories to maintain transparency and accessibility. This selection provides a comprehensive and challenging dataset, crucial for evaluating the robustness and scalability of our proposed knowledge graph approach in detecting code smells in real-world, large-scale software environments.
+
+\begin{table}[h]
+\centering
+\begin{threeparttable}
+\begin{tabular}{|p{2cm}|l|l|l|}
+\hline
+\textbf{Name} & \textbf{LOC} & \textbf{Accessed Date} & \textbf{SHA}  \\ \hline
+\href{https://github.com/huggingface/transformers}{Transformers (Hugging Face)}     & 1.22M  &  November 17, 2023 & 638d49983      \\ \hline
+\end{tabular}
+\caption{Selected large-scale project codebases}
+\label{tab:codebases}
+\end{threeparttable}
+\end{table}
+
+
+\begin{table}[h]
+\centering
+\begin{threeparttable}
+\begin{tabular}{|l|p{6.3cm}|}
+\hline
+\textbf{Criterion} & \textbf{Description} \\ \hline
+CR1        & The primary language is Python, with a ratio of over 90\% among all codebase languages. \\ \hline
+CR2        & The total lines of code (LOC) is at least 1 million, including empty lines and comments. \\ \hline
+CR3        & The project is reputable by having at least 50k stars on GitHub. \\ \hline
+CR4        & There are at least 10,000 nodes and 20,000 edges in the transformed knowledge graph of the codebase. \\ \hline
+% Add more criteria as needed
+\end{tabular}
+
+\begin{tablenotes}
+\item \small Note: The selection criteria for the codebases were applied in accordance with the research time-frame.
+\end{tablenotes}
+
+\caption{Codebase selection criteria}
+\label{tab:codebases_criteria}
+
+\end{threeparttable}
+\end{table}
+
+
+
+% Overview Illustration
+\begin {figure}%[!hbtp]
+\centering
+
+\resizebox{0.6\linewidth}{!}{
+\begin{tikzpicture}[node distance=2cm]
+
+\node (codebase) [component] {Codebase};
+
+\node (ast) [intermediate, below of=codebase] {Abstract Syntax Tree \\ \& Inference};
+\node (class) [intermediate, below of=ast, xshift=-2.2cm, yshift=0.4cm] {Class};
+\node (function) [intermediate, below of=ast, xshift=0cm, yshift=0.4cm] {Function};
+\node (more) [intermediate, below of=ast, xshift=2.2cm, yshift=0.4cm] {...};
+
+\node (kg) [component, below of=function] {Knowledge Graph};
+
+% Arrows
+\path (codebase) edge[arrow] node[on arrow] {Parse} (ast);
+
+\path (ast) edge[arrow] (class);
+\path (ast) edge[arrow] (function);
+\path (ast) edge[arrow] (more);
+
+
+\path (class) edge[arrow] (kg);
+\path (function) edge[arrow] (kg);
+\path (more) edge[arrow] (kg);
+
+
+\end{tikzpicture}
+}
+\caption{Transformation of codebases into KG}
+\label{fig:stage-1-overview}
+\end{figure}
+
+
+
+
+\begin{table*}[h]
+\centering
+\begin{threeparttable}
+\begin{tabular}{|p{1.6cm}||p{1.7cm}|p{2cm}|p{3.3cm}|p{7.5cm}|}
+
+\hline
+\textbf{Type} & \textbf{Name} & \textbf{Label(s)} & \textbf{Property} & \textbf{Description} \\
+\hline
+
+\multirow{23}{*}{Entity} & \multirow{3}{*}{Module}  & \multirow{3}{*}{\texttt{Module}} & \texttt{name: str}             & Identifier. \\ \cline{4-5}
+                        &                           &                                   & \texttt{qualified\_name: str}  & Identifier's complete path including its scope. \\ \cline{4-5}
+                        &                           &                                   & \texttt{file\_path: str}       & Code location. \\ \cline{2-5}
+
+                        & \multirow{4}{*}{Class}    & \multirow{4}{*}{\texttt{Class}}   & \texttt{name: str}             & - \\ \cline{4-5}
+                        &                           &                                   & \texttt{qualified\_name: str}  & - \\ \cline{4-5}
+                        &                           &                                   & \texttt{is\_abstract: bool}    & Whether if is an abstract class. \\ \cline{4-5}
+                        &                           &                                   & \texttt{file\_path: str}       & - \\ \cline{2-5}
+
+                        & \multirow{5}{*}{Variable} & \multirow{5}{*}{\texttt{Variable}} & \texttt{name: str}            & - \\ \cline{4-5}
+                        &                           &                                   & \texttt{qualified\_name: str}  & - \\ \cline{4-5}
+                        &                           &                                   & \texttt{type: str}             & Variable type. \\ \cline{4-5}
+                        &                           &                                   & \texttt{access: str}           & One of: \texttt{public}, \texttt{protected} or \texttt{private} \\ \cline{4-5}
+                        &                           &                                   & \texttt{file\_path: str}       & - \\ \cline{2-5}
+                        
+                        & \multirow{4}{*}{Function} & \multirow{4}{*}{\texttt{Function}} & \texttt{name: str}            & - \\ \cline{4-5}
+                        &                           &                                   & \texttt{qualified\_name: str}  & - \\ \cline{4-5}
+                        &                           &                                   & \texttt{args: array}             & Arguments in a list of \texttt{(name, type)} pairs. \\ \cline{4-5}
+                        &                           &                                   & \texttt{file\_path: str}       & - \\ \cline{2-5}
+                        
+                        & \multirow{7}{*}{Method} & \multirow{7}{*}{\parbox{5cm}{\texttt{Method} and \\ \texttt{Function}}} & \texttt{name: str}       & - \\ \cline{4-5}
+                        &                           &                                   & \texttt{qualified\_name: str}  & - \\ \cline{4-5}
+                        &                           &                                   & \texttt{subtype: str}          & One of: \texttt{function}, \texttt{method}, \texttt{staticmethod} or \texttt{classmethod} \\ \cline{4-5}
+                        &                           &                                   & \texttt{args: array}             & - \\ \cline{4-5}
+                        &                           &                                   & \texttt{class\_name: str}      & Identifier of the parent class. \\ \cline{4-5}
+                        &                           &                                   & \texttt{class\_qualified\_name} & Complete identifier of the parent class.\\ \cline{4-5}
+                        &                           &                                   & \texttt{file\_path: str}       & - \\ \cline{2-5}
+\hline
+\end{tabular}
+
+
+\begin{tabular}{|p{1.6cm}||p{1.7cm}|p{2cm}|p{11.155cm}|}
+\hline
+\textbf{Type} & \textbf{Name} & \textbf{Label(s)} & \textbf{Relation(s)} \\
+\hline
+
+
+\multirow{21}{*}{Relationship} & \multirow{4}{*}{Call}  & \multirow{4}{*}{\texttt{CALLS}}   & Function \texttt{CALLS} Function    \\ 
+                        &                               &                                   & Function \texttt{CALLS} Method      \\ 
+                        &                               &                                   & Method \texttt{CALLS} Function      \\ 
+                        &                               &                                   & Method \texttt{CALLS} Method        \\ \cline{2-4}
+
+                        & \multirow{1}{*}{Inheritance}  & \multirow{1}{*}{\texttt{INHERITS}} & Class \texttt{INHERITS} Class      \\ \cline{2-4}
+                        
+                        & \multirow{7}{*}{Containment}  & \multirow{7}{*}{\texttt{CONTAINS}} & Module \texttt{CONTAINS} Class     \\ 
+                        &                               &                                   & Module \texttt{CONTAINS} Function   \\ 
+                        &                               &                                   & Module \texttt{CONTAINS} Variable   \\ 
+                        &                               &                                   & Class \texttt{CONTAINS} Method      \\ 
+                        &                               &                                   & Class \texttt{CONTAINS} Variable    \\ 
+                        &                               &                                   & Function \texttt{CONTAINS} Variable \\ \cline{2-4}
+                        
+                        & \multirow{2}{*}{Parameter}    & \multirow{2}{*}{\texttt{TAKES}}   & Function \texttt{TAKES} Class    \\ 
+                        &                               &                                   & Method \texttt{TAKES} Class      \\ \cline{2-4}
+                        
+                        & \multirow{2}{*}{Return}       & \multirow{2}{*}{\texttt{RETURNS}} & Function \texttt{RETURNS} Class  \\ 
+                        &                               &                                   & Method \texttt{RETURNS} Class    \\ \cline{2-4}
+
+                        & \multirow{1}{*}{Instantiation} & \multirow{1}{*}{\texttt{INSTANTIATES}} & Class \texttt{INSTANTIATES} Variable       \\ \cline{2-4}
+                        
+                        & \multirow{4}{*}{Utilization}  & \multirow{4}{*}{\texttt{USES}}    & Module \texttt{USES} Variable       \\ 
+                        &                               &                                   & Class \texttt{USES} Variable        \\ 
+                        &                               &                                   & Function \texttt{USES} Variable     \\ 
+                        &                               &                                   & Method \texttt{USES} Variable       \\ \cline{2-4}
+                    
+
+\hline
+\end{tabular}
+% \begin{tablenotes}
+\small
+% \item Note: The selection criteria for the codebases were applied in accordance with the research timeframe.
+% \end{tablenotes}
+\caption{Scheme of knowledge graph}
+\label{tab:ents-and-rels}
+\end{threeparttable}
+\end{table*}
+
+
+
+
+
+
+
+
+% Section 3.1 
+\subsection{Transformation into Knowledge Graphs}
+This stage involves converting software codebases into Knowledge Graphs, a process crucial for capturing the essential elements of the software's structure and semantics. \autoref{fig:stage-1-overview} provides a visual representation of this stage.
+
+\subsubsection{Abstraction of Codebase} 
+To begin with, a critical first step involves extract a comprehensive abstract model of the existing codebase. This extraction is important for gaining a deeper understanding of how various elements within the codebase, such as classes and functions, are interconnected and interact with each other. 
+
+
+% AST
+The \textit{abstract syntax tree} (AST) is a fundamental internal data structure in programming that captures the core structure of a program. It serves as the initial basis for conducting semantic analysis of the program with its enriched information. The term "abstract" implies that the AST abstracts away specific parsing details \cite{Thain_2021}. For the purpose of constructing a KG, it is suitable to use AST for several reasons:  
+
+\begin{description}
+  \item[Structured Representation.] AST provides a tree-like structure built from constructs like functions and variables, which represents the hierarchical syntax of the programming language used in the codebase. This structure is inherently suitable for conversion into a knowledge graph.
+  \item[Semantic.] AST abstracts away from the surface syntax (such as punctuation and keywords) and focuses on the semantics of the code, which allows for a clearer understanding of the code's behavior and logic.
+  \item[Scalability.] ASTs can handle large and complex codebases efficiently, making them suitable for creating extensive knowledge graphs that can encapsulate vast amounts of information.
+\end{description}
+
+
+% Inferences
+\textit{Type inference} refers to the process in a typed programming language where the compiler deduces the types of expressions and subexpressions without requiring the programmer to explicitly annotate every element with its type. This is achieved by strategically placing type information at critical points in the program, such as for local variables, function arguments, and function results. Given this limited type information and the known types of variables and basic constants, the compiler can infer the types of other expressions and statements within the program  \cite{Cardelli_1985}. 
+
+This mechanism helps in figuring out the types in the code where explicit type declarations are not provided, as seen in dynamically typed languages like Python. Furthermore, this type inference helps in recognizing related nodes within the codebase, and enhances graph's accuracy and utility in representing the code's structure and relationships.
+
+
+
+% By extracting these abstracted information, we can scrutinize the code structure and behavior more effectively, which helps in identifying patterns and anomalies that may indicate code smells. This process of abstraction is a precursor to more detailed analysis, setting the stage for effective identification and resolution of potential issues within the code.
+
+
+
+\subsubsection{Composition of Knowledge Graph}
+By employing AST and type inference, the codebase is converted into meaningful, interconnected data that is primed for integration into a KG. \autoref{tab:ents-and-rels} outlines all entities and relationships that ultimately featured in the KG, detailing how entities are connected through the relationships.
+
+To address the issue of functions and classes having identical names within different scopes, the system not only uses a \texttt{name} property but also a \texttt{qualified\_name} property. The \texttt{qualified\_name} is akin to a full address, detailing where in the code hierarchy an entity resides. It includes the module name and namespace, \eg \texttt{request.cookies.RequestsCookieJar}, ensuring each node is uniquely identified regardless of similar names in other scopes in the codebase. 
+
+
+
+
+
+% Section 3.2
+\subsection{Detection with Knowledge Graph}
+In this stage, methods for identifying code smells within the knowledge graph are implemented. By leveraging the KG's structured and enhanced depiction of the codebase, along with converting pattern-based definitions into Cypher queries, code smells are identified.
+
+
+From the \textit{code smells catalog} (referred as \textit{catalog}) by Jerzyk \etal, a new taxonomy for code smells is introduced and categorizes code smells by three groupings: \textit{Obstruction}, \textit{Expanse}, and \textit{Occurrence} \cite{Jerzyk_2023}. 
+
+The approach in this work with the knowledge graph is particularly adept at identifying code smells in the \textit{Expanse} group with \textit{\textbf{Between}} label. 
+
+The \textit{Expanse} grouping is defined by the scope of the code smells. It determines whether these smells are confined \textit{within} a single class or whether their detection necessitates a broader perspective, implying that these smells extend \textit{between} classes \cite{Jerzyk_2023}.
+
+The choice of focusing on the \textit{Between} code smells is strategic, because knowledge graphs are effective in illustrating the relationships between entities, thereby facilitating the identification of these inter-class code smells.
+
+
+The \textit{Cypher} query language is a declarative graph query language that allows for efficient querying and updating of graph databases \cite{neo4j_cypher_overview}. This query language is used for representation of data interaction in the knowledge graph in the subsequent sections.
+
+
+To formalize each code smell, definitions are consolidated from these primary sources: 
+\begin{enumerate*}[label={\alph*)},font={\color{cyan!50!black}\bfseries}]
+\item the general definition by Fowler \etal in their 2018 book \cite{Martin_2018}
+\item the general definition by Martin in his 2008 book \cite{Martin_2008}
+\item the \textit{catalog} definition by Jerzyk \etal \cite{Jerzyk_2023}
+\item the pattern-based approach by Zhang \etal \cite{Zhang_2008}.
+\end{enumerate*}
+Building on these previous definitions, this work introduces its own tailored to knowledge graphs and the Python language, offering a context-specific interpretation for smells detection.
+
+
+\input{smells/speculative-generality}
+\input{smells/base-class-depends-on-subclass}
+\input{smells/data-clumps}
+\input{smells/insider-trading}
+
+
+
+% \subsubsection{Middle Man}
+% \subsubsection{Tramp Data}
+% \subsubsection{Refused Bequest}
+% \subsubsection{Parallel Inheritance Hierarchies}
+% \subsubsection{Base Class depends on Subclass} % Base class should not have relationships out to subclass..?

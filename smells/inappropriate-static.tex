@@ -1,0 +1,27 @@
+\subsection{Inappropriate Static} 
+
+This code smell refers to the misuse of static methods in object-oriented programming. It is original from Martin's work, also known as \textit{Static Cling} \cite{Martin_2008}.
+
+In Martin's explanation, \texttt{math.max(float a, float b)} is a good example of a static method; the function does not operate on instances of \texttt{math} class. In contrast:
+
+\begin{verbatim}
+    HourlyPayCalculator.calculate_pay(employee, rate)
+\end{verbatim}
+
+should ideally be a non-static method in the \texttt{Employee} class, \ie \texttt{employee.calculate\_pay(rate)}. Considering the potential for various payment calculation algorithms, this function should be capable of polymorphic behaviour. Generally, a function is preferable to be non-static than static, unless it is impossible to behave in a polymorphic way \cite{Martin_2008}.
+
+Drawing from the example shown in Jerzyk's work, an instance of \textit{Inappropriate Static} is identified when meets \autoref{def:inappropriate-static}.
+
+\begin{definition}
+A method is static and accepts an instance of its own class as a parameter.
+\label{def:inappropriate-static}
+\end{definition}
+
+The criteria outlined in \autoref{def:inappropriate-static} are translated into a knowledge graph query as follows:
+
+\begin{minted}{cypher}
+MATCH (c:Class)-[:CONTAINS]->(m:Method)
+WHERE m.subtype = "staticmethod" 
+    AND EXISTS((m)-[:TAKES]->(c))
+RETURN c, m
+\end{minted}

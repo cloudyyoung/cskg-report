@@ -1,0 +1,45 @@
+\subsection{Speculative Generality}
+
+\begin{description}[align=left, labelwidth=2.4cm]
+  \item [Obstruction] Dispensable
+  \item [Occurence] Unnecessary Complexity
+  \item [Expanse] Between Classes 
+\end{description}
+
+Developers often add extra features, adding complexity for potential future scenarios "just in case", but they may never materialize, making the code more difficult to understand and maintain without there being any real benefit \cite{Martin_2018}. This tendency is rooted in human psychology and, despite good intentions, it leads to cluttered code \cite{Jerzyk_2023}.
+
+Zhang \etal reformulated the definition into a pattern-oriented approach, encompassing two situations \cite{Zhang_2008}. \autoref{def:speculative-generality-1} and \ref{def:speculative-generality-2} are elaborated to adopt the context in this work accordingly.
+
+\begin{definition}
+A class is an abstract class\footnote{Original definition includes references to both an abstract class and an interface. However, given that Python supports multiple inheritance and does not utilize interfaces, the term "interface" is excluded.}, and this class is not inherited or is only inherited by one class.
+\label{def:speculative-generality-1}
+\end{definition}
+
+\begin{definition}
+A class includes at least one method that has at least one parameter that is not used.
+\label{def:speculative-generality-2}
+\end{definition}
+
+Based on the definitions provided, the subsequent Cypher queries are formulated in accordance:
+
+\begin{minted}{cypher}
+MATCH (a:Class {is_abstract: true})
+OPTIONAL MATCH (a)<-[:INHERITS]-(inheriting_class)
+WITH a, 
+     COUNT(inheriting_class) AS inherits_count
+WHERE inheritsCount <= 1
+RETURN a.name AS class_name, 
+       inherits_count
+\end{minted}
+
+
+\begin{minted}{cypher}
+MATCH (c:Class)-[:CONTAINS]->(m:Method)
+               -[:TAKES]->(p:Variable)
+WHERE NOT (m)-[:USES]->(p)
+RETURN c.name AS class_name, 
+       m.name AS method_name, 
+       p.name AS unused_parameter_name
+\end{minted}
+
+With the queries, classes that are observed with the traits of this code smells are found out.

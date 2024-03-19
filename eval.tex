@@ -1,0 +1,33 @@
+\section{Evaluation}
+\label{sec:eval}
+
+% This section presents the evaluation results verifying the proposed solution and provides data confirming that the objectives are met.  If there is no ``Implementation'' section, this section typically starts with the implementation of the solution here, {\em e.g.}, how each part of the solution is implemented and the tools and software used (with proper reference).  Next, this section should present the evaluation setup, including the computing environments ({\em e.g.}, hardware and software specs where the experiments are deployed), network setting (if involved), any alteration in the implementation, and dataset driving the experiments. The setup is followed by an introduction on comparison algorithms and rationals for choosing them for validating the proposed solution.  Before diving into the evaluation results, it is also important to define all performance metrics and the rational/importance of using them.
+
+% The rest of this section presents the evaluation results that are typically organized into subsections.  The subsections are typically organized in a way that best highlights the advancements brought by the proposed solution and shows the novelty of the work.  
+
+% When presenting results from each experiment, it is important to first explain the purpose of the experiment and parameter setup.  Tables, charts, and plots are typically used to visually present the results.  There are many tools for generateing plots such as {\tt gnuplot} \cite{gnuplot}.  When explaining the results, focus on the insightful observations instead of the obvious results.  The discussion around each experiment should lead to conclusive statements about the correctness of the solution, the advancements, and the novelty.
+
+
+
+\begin{table}[h]
+\centering
+\begin{threeparttable}
+\begin{tabular}{|p{2cm}||p{2cm}|p{2cm}|}
+
+\hline
+\textbf{Name} & \textbf{Name} & \textbf{Amount} \\
+\hline
+
+\multirow{6}{*}{\href{https://github.com/huggingface/transformers}{Transformers}}   
+                                & Class  & 8,609 \\ \cline{2-3}
+                                & Function  & 24,301 \\ \cline{2-3}
+                                & Call  & 22,464 \\ \cline{2-3}
+                                & Containment  & 21,611 \\ \cline{2-3}
+                                & Inheritance  & 5,659 \\ \cline{2-3}
+                                & Return  & 1,142 \\ \cline{2-3}
+\hline
+\end{tabular}
+\caption{Knowledge graph metrics for selected projects}
+\label{tab:graph-metrics}
+\end{threeparttable}
+\end{table}

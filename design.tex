@@ -1,0 +1,190 @@
+\section{System Design}
+\label{sec:design}
+
+This section presents the solution to the problem.  There is no single way or magic formula for organizing this section.  In general, this section should begin with a general overview of the solution, {\em e.g.}, overall system design.  The subsections should detail key components in the solution, and propose solutions for addressing specific challenges.  Depending on the nature of the work, this section may have theorems, equations, algorithms, tables, and figures.  The rest of this section provides the style guide for inserting these elements.
+
+\subsection{Theorems, Equations, and Algorithms}
+\label{sec:design-alg}
+
+Here are examples of including theorems, equations, corollary, and lemma.  You can toggle to the LaTeX source for the actual LaTeX code.
+
+
+\begin{theorem}
+\label{thm:NP-complete}
+The Maximum Service Flow Graph Problem is NP-complete.
+\end{theorem}
+
+\begin{proof}
+It is easy to see that the Maximum
+Service Flow Graph Problem $\in$ NP.  We shall show that the  \textit{SAT Problem} $\propto$ the \textit{Maximum Service Flow Graph Problem}.
+\end{proof}
+
+\begin{theorem}[sFlow theorem]
+\label{thm:NP-hard}
+The Maximum Service Flow Graph Problem is NP-hard.
+\end{theorem}
+
+A consequence of Theorem \ref{thm:NP-hard} can be presented as a corollary and lemma as follows:
+
+\begin{corollary}
+\label{col:polynomial}
+There is no polynomial time solution to solve the Service Flow Graph Problem.
+\end{corollary}
+
+\begin{lemma}
+\label{lem:solution}
+There is a feasible solution to the problem.  
+\end{lemma}
+
+You can refer to them like this Corollary \ref{col:polynomial} and Lemma \ref{lem:solution} if labels are defined.
+ 
+For equations, it is common to use the \texttt{align} environment to define Linear Program formulations as follows. When using \texttt{align}, certain parts of the equations can be aligned. You can use \texttt{\textbackslash nonumber} at the end of each line to control whether you want to number the corresponding equation. You can also define labels in each line so that the line can be referenced later, like Eq.~\ref{eq:CRRO}.
+
+\begin{eqnarray}
+\label{eq:CRRO} 
+		&\min. &{\beta^r_{db}} \times {P^r_{db}} \nonumber\\
+		&      & + {\beta^r_{db}} \times {P^r_{s}} \times {\mu_{s}}^r \\
+		&      & + {\alpha^r _{c}}\times {P^r_{c}} \nonumber\\
+		&      & + [{\lambda^r_{Rdb}} + {\gamma^r_{Rc}}] \times {P^r_{IO}} \times d_t \nonumber
+\end{eqnarray}
+
+For a single equation, it can defined as Eq.~\ref{eq:reserveCon5} using the \texttt{equation} environment.
+
+\begin{equation}
+\label{eq:reserveCon5}
+{\beta^r_{db}}\times {\mu^r_{s}}\geq  {s} 
+\end{equation}
+
+For algorithms, please use the \texttt{algorithm} environment with proper caption and label.  For captions, it is preferred to keep it as short as possible, but still descriptive.  Below is a sample algorithm; please refer to the LaTeX source for the use of macros within this environment.
+
+\begin{algorithm}
+    \label{alg:sched}
+    \begin{algorithmic}[1]
+        \Require{$S$: segment list from the window of interest}
+        \Require{$S_M$: list of missing segments, initially equals to $S$}
+        \Require{$S_Q$: list of segments requested by nodes in WiFi}
+        \Require{\Call{Schedule()}{}: schedules a segment transmission from the Cloud}
+        \Statex
+        \While{streaming}
+            \If{\Call{Schedule()}{} == true}
+                \State Select a segment $s_j$ from $S_M$
+                \State Announce ``download $s_j$''
+                \State Move $s_j$ from $S_M$ to $S_Q$
+                \State Download $s_j$ from the Cloud
+            \EndIf  
+            \Statex
+            \If{$s_j$ received}
+                \State Remove $s_j$ from $S_Q$
+                \If{received from 3G}
+                    \State Send $s_j$ to WiFi
+                \EndIf
+            \EndIf
+            \Statex
+            \If{timeout $s_j$}
+                \State Announce ``missing $s_j$''
+                \State Move $s_j$ from $S_Q$ to $S_M$
+            \EndIf  
+            \Statex
+            \State $m$: an announcement received or overheard
+            \If{$m$ == ``downloaded $s_j$''}
+                \State Move $s_j$ from $S_M$ to $S_Q$
+            \ElsIf{$m$ == ``missing $s_j$''}
+                \State Move $s_j$ from $S_Q$ to $S_M$
+            \EndIf
+        \EndWhile
+    \end{algorithmic}
+\caption{Distributed Scheduling Algorithm on node $N_i$}
+\end{algorithm}
+
+\subsection{Figures}
+\label{sec:design-figure}
+
+In the system design, we usually have figures to illustrate key concepts.  Here are some common ones we have in research papers.  Please view the LaTeX source for how the figures are inserted.
+
+\begin{itemize}
+    \item We often have a diagram illustrating certain structure, {\em e.g.}, frame structure within a GOP as in Figure \ref{fig:design-GOP}.  
+
+    \item We use block diagrams to show the design of a system, {\em e.g.}, the design of Kubernetes concepts as in Figure \ref{fig:kubernetes}
+    
+    \item For protocol design, we can use a sequence diagram as in Figure \ref{fig:tcp}.
+    
+    \item When needed, we also use flow charts as in Figure \ref{fig:flowchart-example}.
+
+\end{itemize}
+
+%\begin{minipage}{\linewidth}
+%\end{figure}
+
+
+\begin{figure}[htbp]
+\begin{center}
+    \includegraphics[width=0.4\textwidth]{figures/kubernetes-constructs-concepts-architecture.jpg}
+\end{center}
+\caption{Kubernetes constructs concepts architecture \cite{kubernetes-image}}
+\label{fig:kubernetes}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.4\textwidth]{figures/GOP.pdf}
+\end{center}
+\caption{An example of GOP structure and frame encoding/decoding dependency \cite{james2019beta}}
+\label{fig:design-GOP}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{center}
+    \includegraphics[width=0.4\textwidth]{figures/TCP-Sequence-Diagram.png}
+\end{center}
+\caption{TCP Sequence diagram \cite{tcp-image} }
+\label{fig:tcp}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{center}
+    \includegraphics[width=0.4\textwidth]{figures/flowchart.PNG}
+\end{center}
+\caption{Flowchart Example \cite{flowchart-image}}
+\label{fig:flowchart-example}
+\end{figure}
+
+
+
+\subsection{Adding Tables}
+\label{sec:design-table}
+
+Tables are also used very often to compare things ({\em e.g.}, related work) or to list things ({\em e.g.}, datasets).  Table \ref{tab:design-dataset} is an example of inserting a table listing a video dataset.  Please view the \LaTeX $ $ source for how the a table is inserted. Please refer to \cite{latex-table} for various table designs.
+
+\begin{table}[htbp]
+ \begin{tabular}
+ %{l|c|c|c|c|c|c|c}
+ {|p{1.0cm}|p{1.3cm}|p{1.2cm}|p{0.4cm}|p{0.5cm}|p{0.7cm}|p{0.6cm}|} 
+\hline
+\textbf{Video} & \textbf{Genre} & \textbf{Duration} & \textbf{MA} & \textbf{CSD} &  \textbf{HTD} & \textbf{EHD} \\
+\hline
+Aspen & Scene & 19.08 s & 0.79 & 44.98 & 140.71 & 3.46 \\
+\hline
+Burn & Scene &  19.08 s & 0.28 & 41.22 & 142.25 & 3.74\\
+\hline
+Dinner  & Animation &  31.75 s & 1.41 & 23.03 & 63.66 & 2.90 \\
+\hline
+Life & Animation &  27.58 s & 1.00 & 32.28 & 95.66 & 3.60 \\
+\hline
+\end{tabular}
+\caption{Characteristics of test videos}
+\label{tab:design-dataset}
+\end{table}
+
+\subsection{Special Formatting}
+\label{design-format}
+
+There are two options to show text verbatim.  \texttt{$\{\backslash$tt <text>$\}$}  will have text show verbatim in a sentence like {\tt this}.  Use \texttt{ verbatim} environment to show multiple lines verbatim. Like the following:
+
+\begin{lstlisting}
+\begin{verbatim}
+line 1
+line 2
+\end{verbatim}
+\end{lstlisting}
+
+

@@ -1,0 +1,34 @@
+\subsection{Insider Trading} 
+
+\begin{description}[align=left, labelwidth=2.4cm]
+  \item [Obstruction] Data Dealers
+  \item [Occurence] Responsibility
+  \item [Expanse] Between Classes 
+\end{description}
+
+% Classes and modules should minimize their knowledge about each other's internal workings. Fowler \etal criticized the excessive interdependency by stating that "classes spend too much time delving in each other's private parts" \cite{Martin_2018}. Originally termed \textit{Inappropriate Intimacy} in 1999 \cite{Martin_1999}, this code smell has been updated to \textit{Insider Trading} in 2018 \cite{Martin_2018}, reflecting a shift from class-specific concerns to a broader module context while maintaining the core idea. The essence of the critique remains that classes or modules should avoid excessively sharing implementation details and data, preserving encapsulation and modularity.
+
+This smell refers to a code smell where modules or classes interchange too much information and implementation details, leading to excessive knowledge about each other's inner workings. Initially identified as \textit{Inappropriate Intimacy} in 1999 \cite{Martin_1999}, the term was updated in 2018 to reflect the generalization from classes to modules and emphasize the issue's nature \cite{Martin_2018}. This concept highlights the problem of software components delving too deeply into each other's private parts, violating principles of encapsulation and modularity \cite{Jerzyk_2023}.
+
+...
+
+
+
+% To describe this code smell in a pattern-based definition, this code smell is identified in situations where excessive data exchange occurs between two classes, typically evidenced by the classes passing instances of themselves to each other, indicating a high level of coupling. 
+
+% % This phenomenon often arises from class inheritance, where subclasses may have access to more information from their parent classes than is desirable \cite{Martin_2018}. This definition encompasses such scenarios, highlighting the issue of overly intimate class relationships.
+
+% \begin{definition}
+% Methods in two classes each accept instances of the other class as parameters.
+% \label{def:insider-trading}
+% \end{definition}
+
+% Which translates to the following Cypher query:
+
+% \begin{minted}{cypher}
+% MATCH (c1:Class)-[:CONTAINS]->(m1:Method)-[:TAKES]->(c2:Class),
+%       (c2)-[:CONTAINS]->(m2:Method)-[:TAKES]->(c1)
+% WHERE NOT c1 = c2
+% RETURN c1, m1, c2, m2
+% \end{minted}
+

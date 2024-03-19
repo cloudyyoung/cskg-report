@@ -1,0 +1,47 @@
+\section{Introduction}
+\label{sec:intro}
+
+
+% Motivation
+Today's software landscape is marked by escalating code complexity due to rising demands for software features. According to McKinsey's research, “software complexity grew by a factor of 4.0 over the past ten years, while 
+software-development productivity increased by only a factor of 1.0 to 1.5. Today's average car contains more than 100,000 million lines of code" \cite{Burkacky_Deichmann_Frank_Hepp_Rocha_2021}. Furthermore, the integration of software components is also increasing. These factors increased the importance of detection and refactoring bad code which also remain vital for software analysis. Therefore, there is an urgent need for solutions to root out bad code.
+
+
+
+% Background
+"Bad smells" in code, often referred to as "code smells," are certain patterns in software development that suggest a deeper problem in the code. They are not bugs — code with smells usually functions correctly — but they indicate weaknesses that can slow down development or increase the risk of bugs or failures in the future.
+
+A typical example of a code smell is \textit{Duplicated Code} \cite{Martin_2018}. This occurs when the same, or very similar, code exists in more than one location within a codebase. While duplicating code might seem a quick solution for a pressing problem, it can make maintenance and future changes challenging, as each instance of the duplication requires careful scrutiny to ensure consistency and correctness. Identifying and addressing such duplications is crucial for improving code quality and maintainability \cite{Martin_2018}.
+
+Many studies have been done previously aims to detect code smells, with a significant number employing machine learning, deep learning, and even convolutional neural networks. In these past efforts, detection was largely driven by models trained for the task. Yet, the effectiveness of these models is greatly influenced by the organization of their training datasets, and consequently, they may underperform on certain codebases, undermining their perceived efficiency \cite{Nucci_Dario_Palomba_2018}. Prior research in this area has often overlooked the intricacies and challenges associated with large-scale software projects. Many of these studies have not delved deeply into the complexities that these larger projects introduce. As a result, the applicability and efficacy of predictive models become constrained when faced with detection tasks in such expansive software environments. This limitation highlights the need for more comprehensive studies and models tailored to address the unique characteristics with regards to code quality when faced with large-scale software projects \cite{Menshawy_Yousef_2021}.
+
+
+
+% Problem Description
+
+The problem is, therefore, to provide an improved solution to the problem of rooting out bad code in software since the currently available solutions are not providing adequate solutions.
+
+Knowledge Graphs (KGs), as a powerful data graph representation of the real world knowledge, represent a transformative approach in the context of data analysis and information management. These graphs are increasingly recognized in the field of artificial intelligence (AI) for their exceptional ability to encapsulate and organize human knowledge in a structured and accessible format. As stated in the study by Peng \etal\cite{Peng_Xia_Naseriparsa_Osborne_2023}, the significance of knowledge graphs in processing diverse information within a machine-readable context has led to extensive research in both academia and industry. In recent years, their adoption has been growing rapidly, as they provide a means of representing complex information  \cite{Peng_Xia_Naseriparsa_Osborne_2023}. 
+
+
+% Add challenges here
+
+
+% Objective
+This paper \textit{aims} to explore a novel approach for the detection of code smells through the application of knowledge graphs, and seek effectiveness of the detection in large-scale codebases. By harnessing the potential of KGs in code smell detection, transforming codebases into knowledge graphs, to provide a more contextual and comprehensive understanding of the code, potentially leading to more accurate detection of code smells, thereby addressing the limitations identified in both machine learning and deep learning techniques. The novelity of this method is its ability to provide a more contextual understanding of the code, which may lead to a more accurate detection, as well as the application of code smells detection in large-scale codebases. 
+
+% In the initial stage, a suitable knowledge base tool is identified, serving as the foundational framework for the implementation of a knowledge graph tailored to the analysis of software code. Subsequently, it focuses on the development of a specialized tool designed to identify and address code smells within software code using knowledge graphs. This undertaking involves a meticulous process for selecting representative code smells from "Refactoring: Improving the Design of Existing Code" (Chapter 3) by Fowler and Beck \cite{Martin_1999}.
+
+
+
+% Challenges faced
+% To be added according to comments.
+
+
+% Main contributions
+% 
+
+
+% Report organization
+The rest of this paper is organized as follows. \autoref{sec:related} provides a comprehensive review of current methodologies and surveys. \autoref{sec:method} delves into the detailed research methodology employed. \autoref{sec:imple} presents the implementation details and the outcomes of the novel approach. \autoref{sec:eval} presents the evaluation of the detection performance and effectiveness. Finally, \autoref{sec:conclusion} summarizes the findings and implications of the study. % Appendix \autoref{sec:appendix-a}, as an additional resource, lists all libraries and tools utilized for research implementation.
+
