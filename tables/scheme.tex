@@ -1,68 +1,68 @@
 \begin{tabular}{p{1.6cm}p{1.7cm}p{2cm}p{3.3cm}p{7.5cm}}
-\hline
+\toprule
 \textbf{Type} & \textbf{Label} & \textbf{Property} & \textbf{Data Type} & \textbf{Description} \\
-\cline{1-1}\cline{2-2}\cline{3-3}\cline{4-4}\cline{5-5}
+\cmidrule{1-1}\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
 \multirow{13}{*}{Entity} & \multirow{3}{*}{Module} & name & String & A string of identifier. \\
-\cline{3-3}\cline{4-4}\cline{5-5}
+\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  &  & qualified\_name & String & Identifier's complete path including its scope. \\
-\cline{3-3}\cline{4-4}\cline{5-5}
+\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  &  & file\_path & String & Code location. \\
-\cline{2-2}\cline{3-3}\cline{4-4}\cline{5-5}
+\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  & \multirow{4}{*}{Class} & name & String & - \\
-\cline{3-3}\cline{4-4}\cline{5-5}
+\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  &  & qualified\_name & String & - \\
-\cline{3-3}\cline{4-4}\cline{5-5}
+\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  &  & is\_abstract & Boolean & Whether if is an abstract class. \\
-\cline{3-3}\cline{4-4}\cline{5-5}
+\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  &  & file\_path & String & - \\
-\cline{2-2}\cline{3-3}\cline{4-4}\cline{5-5}
+\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  & \multirow{3}{*}{Function} & name & String & - \\
-\cline{3-3}\cline{4-4}\cline{5-5}
+\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  &  & qualified\_name & String & - \\
-\cline{3-3}\cline{4-4}\cline{5-5}
+\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  &  & file\_path & String & - \\
-\cline{2-2}\cline{3-3}\cline{4-4}\cline{5-5}
+\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  & \multirow{3}{*}{Method} & name & String & - \\
-\cline{3-3}\cline{4-4}\cline{5-5}
+\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  &  & qualified\_name & String & - \\
-\cline{3-3}\cline{4-4}\cline{5-5}
+\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  &  & file\_path & String & - \\
-\cline{1-1}\cline{2-2}\cline{3-3}\cline{4-4}\cline{5-5}
-\hline
+\cmidrule{1-1}\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
+\bottomrule
 \end{tabular}
 
 \begin{tabular}{p{1.6cm}p{1.7cm}p{2cm}p{4.3cm}p{6.5cm}}
-\hline
+\toprule
 \textbf{Type} & \textbf{Name} & \textbf{Label} & \textbf{Relations} & \textbf{Attributes} \\
-\cline{1-1}\cline{2-2}\cline{3-3}\cline{4-4}\cline{5-5}
+\cmidrule{1-1}\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
 \multirow{14}{*}{Relationship} & Call & CALLS & Function USES Function &  \\
-\cline{2-2}\cline{3-3}\cline{4-4}\cline{5-5}
+\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  & Inheritance & INHERITS & Class INHERITS Class &  \\
-\cline{2-2}\cline{3-3}\cline{4-4}\cline{5-5}
+\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  & \multirow{6}{*}{Containment} & \multirow{6}{*}{CONTAINS} & Module CONTAINS Class &  \\
-\cline{4-4}\cline{5-5}
+\cmidrule{4-4}\cmidrule{5-5}
  &  &  & Module CONTAINS Function &  \\
-\cline{4-4}\cline{5-5}
+\cmidrule{4-4}\cmidrule{5-5}
  &  &  & Module CONTAINS Variable &  \\
-\cline{4-4}\cline{5-5}
+\cmidrule{4-4}\cmidrule{5-5}
  &  &  & Class CONTAINS Method &  \\
-\cline{4-4}\cline{5-5}
+\cmidrule{4-4}\cmidrule{5-5}
  &  &  & Class CONTAINS Variable &  \\
-\cline{4-4}\cline{5-5}
+\cmidrule{4-4}\cmidrule{5-5}
  &  &  & Function CONTAINS Variable &  \\
-\cline{2-2}\cline{3-3}\cline{4-4}\cline{5-5}
+\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  & Parameter & TAKES & Function TAKES Class &  \\
-\cline{2-2}\cline{3-3}\cline{4-4}\cline{5-5}
+\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  & Return & RETURNS & Function RETURNS Class &  \\
-\cline{2-2}\cline{3-3}\cline{4-4}\cline{5-5}
+\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  & Instantiation & INSTANTIATES & Class INSTANTIATES Variable &  \\
-\cline{2-2}\cline{3-3}\cline{4-4}\cline{5-5}
+\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  & \multirow{3}{*}{Utilization} & \multirow{3}{*}{USES} & Module USES Variable &  \\
-\cline{4-4}\cline{5-5}
+\cmidrule{4-4}\cmidrule{5-5}
  &  &  & Class USES Variable &  \\
-\cline{4-4}\cline{5-5}
+\cmidrule{4-4}\cmidrule{5-5}
  &  &  & Function USES Variable &  \\
-\cline{1-1}\cline{2-2}\cline{3-3}\cline{4-4}\cline{5-5}
-\hline
+\cmidrule{1-1}\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
+\bottomrule
 \end{tabular}
 
