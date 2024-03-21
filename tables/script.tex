@@ -2,13 +2,13 @@
 \toprule
 \textbf{Type} & \textbf{Label} & \textbf{Property} & \textbf{Description} \\
 \cmidrule{1-1}\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
-\multirow{18}[{36}]{*}{Entity} & \multirow{3}[{6}]{*}{\texttt{Module}} & \texttt{name} & A string of identifier. \\
+\multirow{18}[36]{*}{Entity} & \multirow{3}[6]{*}{\texttt{Module}} & \texttt{name} & A string of identifier. \\
 \cmidrule{3-3}\cmidrule{4-4}
  &  & \texttt{qualified\_\texttt{name}} & Identifier's complete path including its scope. \\
 \cmidrule{3-3}\cmidrule{4-4}
  &  & \texttt{file\_path} & Code location. \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
- & \multirow{4}[{8}]{*}{\texttt{Class}} & \texttt{name} & - \\
+ & \multirow{4}[8]{*}{\texttt{Class}} & \texttt{name} & - \\
 \cmidrule{3-3}\cmidrule{4-4}
  &  & \texttt{qualified\_\texttt{name}} & - \\
 \cmidrule{3-3}\cmidrule{4-4}
@@ -16,7 +16,7 @@
 \cmidrule{3-3}\cmidrule{4-4}
  &  & \texttt{file\_path} & - \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
- & \multirow{4}[{8}]{*}{\texttt{Function}} & \texttt{name} & - \\
+ & \multirow{4}[8]{*}{\texttt{Function}} & \texttt{name} & - \\
 \cmidrule{3-3}\cmidrule{4-4}
  &  & \texttt{qualified\_\texttt{name}} & - \\
 \cmidrule{3-3}\cmidrule{4-4}
@@ -24,13 +24,13 @@
 \cmidrule{3-3}\cmidrule{4-4}
  &  & \texttt{file\_path} & - \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
- & \multirow{3}[{6}]{*}{\texttt{Method} (\texttt{Function})} & \texttt{name} & - \\
+ & \multirow{3}[6]{*}{\texttt{Method} (\texttt{Function})} & \texttt{name} & - \\
 \cmidrule{3-3}\cmidrule{4-4}
  &  & \texttt{qualified\_\texttt{name}} & - \\
 \cmidrule{3-3}\cmidrule{4-4}
  &  & \texttt{file\_path} & - \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
- & \multirow{4}[{8}]{*}{\texttt{Variable}} & \texttt{name} & - \\
+ & \multirow{4}[8]{*}{\texttt{Variable}} & \texttt{name} & - \\
 \cmidrule{3-3}\cmidrule{4-4}
  &  & \texttt{qualified\_\texttt{name}} & - \\
 \cmidrule{3-3}\cmidrule{4-4}
@@ -44,11 +44,11 @@
 \toprule
 \textbf{Type} & \textbf{Name} & \textbf{Label} & \textbf{Relations} & \textbf{Attributes} \\
 \cmidrule{1-1}\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
-\multirow{14}[{28}]{*}{Relationship} & Call & \texttt{CALLS} & \texttt{Function} \texttt{USES} \texttt{Function} &  \\
+\multirow{14}[28]{*}{Relationship} & Call & \texttt{CALLS} & \texttt{Function} \texttt{USES} \texttt{Function} &  \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  & Inheritance & \texttt{INHERITS} & \texttt{Class} \texttt{INHERITS} \texttt{Class} &  \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- & \multirow{6}[{12}]{*}{Containment} & \multirow{6}[{12}]{*}{\texttt{CONTAINS}} & \texttt{Module} \texttt{CONTAINS} \texttt{Class} &  \\
+ & \multirow{6}[12]{*}{Containment} & \multirow{6}[12]{*}{\texttt{CONTAINS}} & \texttt{Module} \texttt{CONTAINS} \texttt{Class} &  \\
 \cmidrule{4-4}\cmidrule{5-5}
  &  &  & \texttt{Module} \texttt{CONTAINS} \texttt{Function} &  \\
 \cmidrule{4-4}\cmidrule{5-5}
@@ -66,7 +66,7 @@
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  & Instantiation & \texttt{INSTANTIATES} & \texttt{Class} \texttt{INSTANTIATES} \texttt{Variable} &  \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- & \multirow{3}[{6}]{*}{Utilization} & \multirow{3}[{6}]{*}{\texttt{USES}} & \texttt{Module} \texttt{USES} \texttt{Variable} &  \\
+ & \multirow{3}[6]{*}{Utilization} & \multirow{3}[6]{*}{\texttt{USES}} & \texttt{Module} \texttt{USES} \texttt{Variable} &  \\
 \cmidrule{4-4}\cmidrule{5-5}
  &  &  & \texttt{Class} \texttt{USES} \texttt{Variable} &  \\
 \cmidrule{4-4}\cmidrule{5-5}
