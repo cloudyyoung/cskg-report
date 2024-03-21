@@ -90,92 +90,106 @@ CR4        & There are at least 10,000 nodes and 20,000 edges in the transformed
 \end{figure}
 
 
-
-
 \begin{table*}[h]
 \centering
 \begin{threeparttable}
-\begin{tabular}{|p{1.6cm}||p{1.7cm}|p{2cm}|p{3.3cm}|p{7.5cm}|}
-
-\hline
-\textbf{Type} & \textbf{Name} & \textbf{Label(s)} & \textbf{Property} & \textbf{Description} \\
-\hline
-
-\multirow{23}{*}{Entity} & \multirow{3}{*}{Module}  & \multirow{3}{*}{\texttt{Module}} & \texttt{name: str}             & Identifier. \\ \cline{4-5}
-                        &                           &                                   & \texttt{qualified\_name: str}  & Identifier's complete path including its scope. \\ \cline{4-5}
-                        &                           &                                   & \texttt{file\_path: str}       & Code location. \\ \cline{2-5}
-
-                        & \multirow{4}{*}{Class}    & \multirow{4}{*}{\texttt{Class}}   & \texttt{name: str}             & - \\ \cline{4-5}
-                        &                           &                                   & \texttt{qualified\_name: str}  & - \\ \cline{4-5}
-                        &                           &                                   & \texttt{is\_abstract: bool}    & Whether if is an abstract class. \\ \cline{4-5}
-                        &                           &                                   & \texttt{file\_path: str}       & - \\ \cline{2-5}
-
-                        & \multirow{5}{*}{Variable} & \multirow{5}{*}{\texttt{Variable}} & \texttt{name: str}            & - \\ \cline{4-5}
-                        &                           &                                   & \texttt{qualified\_name: str}  & - \\ \cline{4-5}
-                        &                           &                                   & \texttt{type: str}             & Variable type. \\ \cline{4-5}
-                        &                           &                                   & \texttt{access: str}           & One of: \texttt{public}, \texttt{protected} or \texttt{private} \\ \cline{4-5}
-                        &                           &                                   & \texttt{file\_path: str}       & - \\ \cline{2-5}
-                        
-                        & \multirow{4}{*}{Function} & \multirow{4}{*}{\texttt{Function}} & \texttt{name: str}            & - \\ \cline{4-5}
-                        &                           &                                   & \texttt{qualified\_name: str}  & - \\ \cline{4-5}
-                        &                           &                                   & \texttt{args: array}             & Arguments in a list of \texttt{(name, type)} pairs. \\ \cline{4-5}
-                        &                           &                                   & \texttt{file\_path: str}       & - \\ \cline{2-5}
-                        
-                        & \multirow{7}{*}{Method} & \multirow{7}{*}{\parbox{5cm}{\texttt{Method} and \\ \texttt{Function}}} & \texttt{name: str}       & - \\ \cline{4-5}
-                        &                           &                                   & \texttt{qualified\_name: str}  & - \\ \cline{4-5}
-                        &                           &                                   & \texttt{subtype: str}          & One of: \texttt{function}, \texttt{method}, \texttt{staticmethod} or \texttt{classmethod} \\ \cline{4-5}
-                        &                           &                                   & \texttt{args: array}             & - \\ \cline{4-5}
-                        &                           &                                   & \texttt{class\_name: str}      & Identifier of the parent class. \\ \cline{4-5}
-                        &                           &                                   & \texttt{class\_qualified\_name} & Complete identifier of the parent class.\\ \cline{4-5}
-                        &                           &                                   & \texttt{file\_path: str}       & - \\ \cline{2-5}
-\hline
-\end{tabular}
 
 
-\begin{tabular}{|p{1.6cm}||p{1.7cm}|p{2cm}|p{11.155cm}|}
-\hline
-\textbf{Type} & \textbf{Name} & \textbf{Label(s)} & \textbf{Relation(s)} \\
-\hline
 
 
-\multirow{21}{*}{Relationship} & \multirow{4}{*}{Call}  & \multirow{4}{*}{\texttt{CALLS}}   & Function \texttt{CALLS} Function    \\ 
-                        &                               &                                   & Function \texttt{CALLS} Method      \\ 
-                        &                               &                                   & Method \texttt{CALLS} Function      \\ 
-                        &                               &                                   & Method \texttt{CALLS} Method        \\ \cline{2-4}
 
-                        & \multirow{1}{*}{Inheritance}  & \multirow{1}{*}{\texttt{INHERITS}} & Class \texttt{INHERITS} Class      \\ \cline{2-4}
-                        
-                        & \multirow{7}{*}{Containment}  & \multirow{7}{*}{\texttt{CONTAINS}} & Module \texttt{CONTAINS} Class     \\ 
-                        &                               &                                   & Module \texttt{CONTAINS} Function   \\ 
-                        &                               &                                   & Module \texttt{CONTAINS} Variable   \\ 
-                        &                               &                                   & Class \texttt{CONTAINS} Method      \\ 
-                        &                               &                                   & Class \texttt{CONTAINS} Variable    \\ 
-                        &                               &                                   & Function \texttt{CONTAINS} Variable \\ \cline{2-4}
-                        
-                        & \multirow{2}{*}{Parameter}    & \multirow{2}{*}{\texttt{TAKES}}   & Function \texttt{TAKES} Class    \\ 
-                        &                               &                                   & Method \texttt{TAKES} Class      \\ \cline{2-4}
-                        
-                        & \multirow{2}{*}{Return}       & \multirow{2}{*}{\texttt{RETURNS}} & Function \texttt{RETURNS} Class  \\ 
-                        &                               &                                   & Method \texttt{RETURNS} Class    \\ \cline{2-4}
-
-                        & \multirow{1}{*}{Instantiation} & \multirow{1}{*}{\texttt{INSTANTIATES}} & Class \texttt{INSTANTIATES} Variable       \\ \cline{2-4}
-                        
-                        & \multirow{4}{*}{Utilization}  & \multirow{4}{*}{\texttt{USES}}    & Module \texttt{USES} Variable       \\ 
-                        &                               &                                   & Class \texttt{USES} Variable        \\ 
-                        &                               &                                   & Function \texttt{USES} Variable     \\ 
-                        &                               &                                   & Method \texttt{USES} Variable       \\ \cline{2-4}
-                    
-
-\hline
-\end{tabular}
-% \begin{tablenotes}
-\small
-% \item Note: The selection criteria for the codebases were applied in accordance with the research timeframe.
-% \end{tablenotes}
 \caption{Scheme of knowledge graph}
 \label{tab:ents-and-rels}
 \end{threeparttable}
 \end{table*}
+
+
+
+
+% \begin{table*}[h]
+% \centering
+% \begin{threeparttable}
+% \begin{tabular}{|p{1.6cm}||p{1.7cm}|p{2cm}|p{3.3cm}|p{7.5cm}|}
+
+% \hline
+% \textbf{Type} & \textbf{Name} & \textbf{Label(s)} & \textbf{Property} & \textbf{Description} \\
+% \hline
+
+% \multirow{23}{*}{Entity} & \multirow{3}{*}{Module}  & \multirow{3}{*}{\texttt{Module}} & \texttt{name: str}             & Identifier. \\ \cline{4-5}
+%                         &                           &                                   & \texttt{qualified\_name: str}  & Identifier's complete path including its scope. \\ \cline{4-5}
+%                         &                           &                                   & \texttt{file\_path: str}       & Code location. \\ \cline{2-5}
+
+%                         & \multirow{4}{*}{Class}    & \multirow{4}{*}{\texttt{Class}}   & \texttt{name: str}             & - \\ \cline{4-5}
+%                         &                           &                                   & \texttt{qualified\_name: str}  & - \\ \cline{4-5}
+%                         &                           &                                   & \texttt{is\_abstract: bool}    & Whether if is an abstract class. \\ \cline{4-5}
+%                         &                           &                                   & \texttt{file\_path: str}       & - \\ \cline{2-5}
+
+%                         & \multirow{5}{*}{Variable} & \multirow{5}{*}{\texttt{Variable}} & \texttt{name: str}            & - \\ \cline{4-5}
+%                         &                           &                                   & \texttt{qualified\_name: str}  & - \\ \cline{4-5}
+%                         &                           &                                   & \texttt{type: str}             & Variable type. \\ \cline{4-5}
+%                         &                           &                                   & \texttt{access: str}           & One of: \texttt{public}, \texttt{protected} or \texttt{private} \\ \cline{4-5}
+%                         &                           &                                   & \texttt{file\_path: str}       & - \\ \cline{2-5}
+                        
+%                         & \multirow{4}{*}{Function} & \multirow{4}{*}{\texttt{Function}} & \texttt{name: str}            & - \\ \cline{4-5}
+%                         &                           &                                   & \texttt{qualified\_name: str}  & - \\ \cline{4-5}
+%                         &                           &                                   & \texttt{args: array}             & Arguments in a list of \texttt{(name, type)} pairs. \\ \cline{4-5}
+%                         &                           &                                   & \texttt{file\_path: str}       & - \\ \cline{2-5}
+                        
+%                         & \multirow{7}{*}{Method} & \multirow{7}{*}{\parbox{5cm}{\texttt{Method} and \\ \texttt{Function}}} & \texttt{name: str}       & - \\ \cline{4-5}
+%                         &                           &                                   & \texttt{qualified\_name: str}  & - \\ \cline{4-5}
+%                         &                           &                                   & \texttt{subtype: str}          & One of: \texttt{function}, \texttt{method}, \texttt{staticmethod} or \texttt{classmethod} \\ \cline{4-5}
+%                         &                           &                                   & \texttt{args: array}             & - \\ \cline{4-5}
+%                         &                           &                                   & \texttt{class\_name: str}      & Identifier of the parent class. \\ \cline{4-5}
+%                         &                           &                                   & \texttt{class\_qualified\_name} & Complete identifier of the parent class.\\ \cline{4-5}
+%                         &                           &                                   & \texttt{file\_path: str}       & - \\ \cline{2-5}
+% \hline
+% \end{tabular}
+
+
+% \begin{tabular}{|p{1.6cm}||p{1.7cm}|p{2cm}|p{11.155cm}|}
+% \hline
+% \textbf{Type} & \textbf{Name} & \textbf{Label(s)} & \textbf{Relation(s)} \\
+% \hline
+
+
+% \multirow{21}{*}{Relationship} & \multirow{4}{*}{Call}  & \multirow{4}{*}{\texttt{CALLS}}   & Function \texttt{CALLS} Function    \\ 
+%                         &                               &                                   & Function \texttt{CALLS} Method      \\ 
+%                         &                               &                                   & Method \texttt{CALLS} Function      \\ 
+%                         &                               &                                   & Method \texttt{CALLS} Method        \\ \cline{2-4}
+
+%                         & \multirow{1}{*}{Inheritance}  & \multirow{1}{*}{\texttt{INHERITS}} & Class \texttt{INHERITS} Class      \\ \cline{2-4}
+                        
+%                         & \multirow{7}{*}{Containment}  & \multirow{7}{*}{\texttt{CONTAINS}} & Module \texttt{CONTAINS} Class     \\ 
+%                         &                               &                                   & Module \texttt{CONTAINS} Function   \\ 
+%                         &                               &                                   & Module \texttt{CONTAINS} Variable   \\ 
+%                         &                               &                                   & Class \texttt{CONTAINS} Method      \\ 
+%                         &                               &                                   & Class \texttt{CONTAINS} Variable    \\ 
+%                         &                               &                                   & Function \texttt{CONTAINS} Variable \\ \cline{2-4}
+                        
+%                         & \multirow{2}{*}{Parameter}    & \multirow{2}{*}{\texttt{TAKES}}   & Function \texttt{TAKES} Class    \\ 
+%                         &                               &                                   & Method \texttt{TAKES} Class      \\ \cline{2-4}
+                        
+%                         & \multirow{2}{*}{Return}       & \multirow{2}{*}{\texttt{RETURNS}} & Function \texttt{RETURNS} Class  \\ 
+%                         &                               &                                   & Method \texttt{RETURNS} Class    \\ \cline{2-4}
+
+%                         & \multirow{1}{*}{Instantiation} & \multirow{1}{*}{\texttt{INSTANTIATES}} & Class \texttt{INSTANTIATES} Variable       \\ \cline{2-4}
+                        
+%                         & \multirow{4}{*}{Utilization}  & \multirow{4}{*}{\texttt{USES}}    & Module \texttt{USES} Variable       \\ 
+%                         &                               &                                   & Class \texttt{USES} Variable        \\ 
+%                         &                               &                                   & Function \texttt{USES} Variable     \\ 
+%                         &                               &                                   & Method \texttt{USES} Variable       \\ \cline{2-4}
+                    
+
+% \hline
+% \end{tabular}
+% % \begin{tablenotes}
+% \small
+% % \item Note: The selection criteria for the codebases were applied in accordance with the research timeframe.
+% % \end{tablenotes}
+% \caption{Scheme of knowledge graph}
+% \label{tab:ents-and-rels}
+% \end{threeparttable}
+% \end{table*}
 
 
 
