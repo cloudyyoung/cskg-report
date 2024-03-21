@@ -2,13 +2,13 @@
 \toprule
 \textbf{Type} & \textbf{Label} & \textbf{Property} & \textbf{Data Type} & \textbf{Description} \\
 \cmidrule{1-1}\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
-\multirow{13}{m}{Entity} & \multirow{3}{m}{Module} & name & String & A string of identifier. \\
+\multirow{13}{*}{Entity} & \multirow{3}{*}{Module} & name & String & A string of identifier. \\
 \cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  &  & qualified\_name & String & Identifier's complete path including its scope. \\
 \cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  &  & file\_path & String & Code location. \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- & \multirow{4}{m}{Class} & name & String & - \\
+ & \multirow{4}{*}{Class} & name & String & - \\
 \cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  &  & qualified\_name & String & - \\
 \cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
@@ -16,13 +16,13 @@
 \cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  &  & file\_path & String & - \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- & \multirow{3}{m}{Function} & name & String & - \\
+ & \multirow{3}{*}{Function} & name & String & - \\
 \cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  &  & qualified\_name & String & - \\
 \cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  &  & file\_path & String & - \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- & \multirow{3}{m}{Method} & name & String & - \\
+ & \multirow{3}{*}{Method} & name & String & - \\
 \cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  &  & qualified\_name & String & - \\
 \cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
@@ -35,11 +35,11 @@
 \toprule
 \textbf{Type} & \textbf{Name} & \textbf{Label} & \textbf{Relations} & \textbf{Attributes} \\
 \cmidrule{1-1}\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
-\multirow{14}{m}{Relationship} & Call & CALLS & Function USES Function &  \\
+\multirow{14}{*}{Relationship} & Call & CALLS & Function USES Function &  \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  & Inheritance & INHERITS & Class INHERITS Class &  \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- & \multirow{6}{m}{Containment} & \multirow{6}{m}{CONTAINS} & Module CONTAINS Class &  \\
+ & \multirow{6}{*}{Containment} & \multirow{6}{*}{CONTAINS} & Module CONTAINS Class &  \\
 \cmidrule{4-4}\cmidrule{5-5}
  &  &  & Module CONTAINS Function &  \\
 \cmidrule{4-4}\cmidrule{5-5}
@@ -57,7 +57,7 @@
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  & Instantiation & INSTANTIATES & Class INSTANTIATES Variable &  \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- & \multirow{3}{m}{Utilization} & \multirow{3}{m}{USES} & Module USES Variable &  \\
+ & \multirow{3}{*}{Utilization} & \multirow{3}{*}{USES} & Module USES Variable &  \\
 \cmidrule{4-4}\cmidrule{5-5}
  &  &  & Class USES Variable &  \\
 \cmidrule{4-4}\cmidrule{5-5}
