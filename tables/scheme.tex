@@ -2,13 +2,13 @@
 \toprule
 \textbf{Type} & \textbf{Label} & \textbf{Property} & \textbf{Description} \\
 \cmidrule{1-1}\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
-\multirow{18}{*}[-0.8cm]{Entity} & \multirow{3}{*}[-0.8cm]{Module} & name & A string of identifier. \\
+\multirow{18}{*}{Entity \bigstrut} & \multirow{3}{*}{Module \bigstrut} & name & A string of identifier. \\
 \cmidrule{3-3}\cmidrule{4-4}
  &  & qualified\_name & Identifier's complete path including its scope. \\
 \cmidrule{3-3}\cmidrule{4-4}
  &  & file\_path & Code location. \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
- & \multirow{4}{*}[-0.8cm]{Class} & name & - \\
+ & \multirow{4}{*}{Class \bigstrut} & name & - \\
 \cmidrule{3-3}\cmidrule{4-4}
  &  & qualified\_name & - \\
 \cmidrule{3-3}\cmidrule{4-4}
@@ -16,7 +16,7 @@
 \cmidrule{3-3}\cmidrule{4-4}
  &  & file\_path & - \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
- & \multirow{4}{*}[-0.8cm]{Function} & name & - \\
+ & \multirow{4}{*}{Function \bigstrut} & name & - \\
 \cmidrule{3-3}\cmidrule{4-4}
  &  & qualified\_name & - \\
 \cmidrule{3-3}\cmidrule{4-4}
@@ -24,13 +24,13 @@
 \cmidrule{3-3}\cmidrule{4-4}
  &  & file\_path & - \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
- & \multirow{3}{*}[-0.8cm]{Method (Function)} & name & - \\
+ & \multirow{3}{*}{Method (Function) \bigstrut} & name & - \\
 \cmidrule{3-3}\cmidrule{4-4}
  &  & qualified\_name & - \\
 \cmidrule{3-3}\cmidrule{4-4}
  &  & file\_path & - \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
- & \multirow{4}{*}[-0.8cm]{Variable} & name & - \\
+ & \multirow{4}{*}{Variable \bigstrut} & name & - \\
 \cmidrule{3-3}\cmidrule{4-4}
  &  & qualified\_name & - \\
 \cmidrule{3-3}\cmidrule{4-4}
@@ -44,11 +44,11 @@
 \toprule
 \textbf{Type} & \textbf{Name} & \textbf{Label} & \textbf{Relations} & \textbf{Attributes} \\
 \cmidrule{1-1}\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
-\multirow{14}{*}[-0.8cm]{Relationship} & Call & CALLS & Function USES Function &  \\
+\multirow{14}{*}{Relationship \bigstrut} & Call & CALLS & Function USES Function &  \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  & Inheritance & INHERITS & Class INHERITS Class &  \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- & \multirow{6}{*}[-0.8cm]{Containment} & \multirow{6}{*}[-0.8cm]{CONTAINS} & Module CONTAINS Class &  \\
+ & \multirow{6}{*}{Containment \bigstrut} & \multirow{6}{*}{CONTAINS \bigstrut} & Module CONTAINS Class &  \\
 \cmidrule{4-4}\cmidrule{5-5}
  &  &  & Module CONTAINS Function &  \\
 \cmidrule{4-4}\cmidrule{5-5}
@@ -66,7 +66,7 @@
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  & Instantiation & INSTANTIATES & Class INSTANTIATES Variable &  \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- & \multirow{3}{*}[-0.8cm]{Utilization} & \multirow{3}{*}[-0.8cm]{USES} & Module USES Variable &  \\
+ & \multirow{3}{*}{Utilization \bigstrut} & \multirow{3}{*}{USES \bigstrut} & Module USES Variable &  \\
 \cmidrule{4-4}\cmidrule{5-5}
  &  &  & Class USES Variable &  \\
 \cmidrule{4-4}\cmidrule{5-5}
