@@ -2,7 +2,7 @@
 \toprule
 \textbf{Type} & \textbf{Label} & \textbf{Property} & \textbf{Data Type} & \textbf{Description} \\
 \cmidrule{1-1}\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
-\multirow{13}{*}{Entity} & \multirow{3}{*}{Module} & name & String & A string of identifier. \\
+\multirow{18}{*}{Entity} & \multirow{3}{*}{Module} & name & String & A string of identifier. \\
 \cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  &  & qualified\_name & String & Identifier's complete path including its scope. \\
 \cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
@@ -16,15 +16,25 @@
 \cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  &  & file\_path & String & - \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- & \multirow{3}{*}{Function} & name & String & - \\
+ & \multirow{4}{*}{Function} & name & String & - \\
+\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
+ &  & qualified\_name & String & - \\
+\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
+ &  & type & String & One of function, method, classmethod or staticmethod. \\
+\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
+ &  & file\_path & String & - \\
+\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
+ & \multirow{3}{*}{Method (Function)} & name & String & - \\
 \cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  &  & qualified\_name & String & - \\
 \cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  &  & file\_path & String & - \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- & \multirow{3}{*}{Method} & name & String & - \\
+ & \multirow{4}{*}{Variable} & name & String & - \\
 \cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  &  & qualified\_name & String & - \\
+\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
+ &  & access & String & One of public, protected or private. \\
 \cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  &  & file\_path & String & - \\
 \bottomrule
