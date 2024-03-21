@@ -1,76 +1,76 @@
-\begin{tabular}{p{1.6cm}p{2.5cm}p{2cm}p{10cm}}
+\begin{tabularx}{\textwidth}{p{1.8cm}llX}
 \toprule
 \textbf{Type} & \textbf{Label} & \textbf{Property} & \textbf{Description} \\
 \cmidrule{1-1}\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
-\multirow{18}{*}{Entity \bigstrut} & \multirow{3}{*}{Module \bigstrut} & name & A string of identifier. \\
+\multirow{18}[{36}]{*}{Entity} & \multirow{3}[{6}]{*}{\texttt{Module}} & \texttt{name} & A string of identifier. \\
 \cmidrule{3-3}\cmidrule{4-4}
- &  & qualified\_name & Identifier's complete path including its scope. \\
+ &  & \texttt{qualified\_\texttt{name}} & Identifier's complete path including its scope. \\
 \cmidrule{3-3}\cmidrule{4-4}
- &  & file\_path & Code location. \\
+ &  & \texttt{file\_path} & Code location. \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
- & \multirow{4}{*}{Class \bigstrut} & name & - \\
+ & \multirow{4}[{8}]{*}{\texttt{Class}} & \texttt{name} & - \\
 \cmidrule{3-3}\cmidrule{4-4}
- &  & qualified\_name & - \\
+ &  & \texttt{qualified\_\texttt{name}} & - \\
 \cmidrule{3-3}\cmidrule{4-4}
- &  & is\_abstract & Whether if is an abstract class. \\
+ &  & \texttt{is\_abstract} & Whether if is an abstract class. \\
 \cmidrule{3-3}\cmidrule{4-4}
- &  & file\_path & - \\
+ &  & \texttt{file\_path} & - \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
- & \multirow{4}{*}{Function \bigstrut} & name & - \\
+ & \multirow{4}[{8}]{*}{\texttt{Function}} & \texttt{name} & - \\
 \cmidrule{3-3}\cmidrule{4-4}
- &  & qualified\_name & - \\
+ &  & \texttt{qualified\_\texttt{name}} & - \\
 \cmidrule{3-3}\cmidrule{4-4}
  &  & type & One of function, method, classmethod or staticmethod. \\
 \cmidrule{3-3}\cmidrule{4-4}
- &  & file\_path & - \\
+ &  & \texttt{file\_path} & - \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
- & \multirow{3}{*}{Method (Function) \bigstrut} & name & - \\
+ & \multirow{3}[{6}]{*}{\texttt{Method} (\texttt{Function})} & \texttt{name} & - \\
 \cmidrule{3-3}\cmidrule{4-4}
- &  & qualified\_name & - \\
+ &  & \texttt{qualified\_\texttt{name}} & - \\
 \cmidrule{3-3}\cmidrule{4-4}
- &  & file\_path & - \\
+ &  & \texttt{file\_path} & - \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
- & \multirow{4}{*}{Variable \bigstrut} & name & - \\
+ & \multirow{4}[{8}]{*}{\texttt{Variable}} & \texttt{name} & - \\
 \cmidrule{3-3}\cmidrule{4-4}
- &  & qualified\_name & - \\
+ &  & \texttt{qualified\_\texttt{name}} & - \\
 \cmidrule{3-3}\cmidrule{4-4}
- &  & access & One of public, protected or private. \\
+ &  & \texttt{access} & One of public, protected or private. \\
 \cmidrule{3-3}\cmidrule{4-4}
- &  & file\_path & - \\
+ &  & \texttt{file\_path} & - \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 
-\begin{tabular}{p{1.6cm}p{1.7cm}p{2cm}p{4.3cm}p{6.5cm}}
+\begin{tabularx}{\textwidth}{p{1.8cm}lllX}
 \toprule
 \textbf{Type} & \textbf{Name} & \textbf{Label} & \textbf{Relations} & \textbf{Attributes} \\
 \cmidrule{1-1}\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
-\multirow{14}{*}{Relationship \bigstrut} & Call & CALLS & Function USES Function &  \\
+\multirow{14}[{28}]{*}{Relationship} & Call & \texttt{CALLS} & \texttt{Function} \texttt{USES} \texttt{Function} &  \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- & Inheritance & INHERITS & Class INHERITS Class &  \\
+ & Inheritance & \texttt{INHERITS} & \texttt{Class} \texttt{INHERITS} \texttt{Class} &  \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- & \multirow{6}{*}{Containment \bigstrut} & \multirow{6}{*}{CONTAINS \bigstrut} & Module CONTAINS Class &  \\
+ & \multirow{6}[{12}]{*}{Containment} & \multirow{6}[{12}]{*}{\texttt{CONTAINS}} & \texttt{Module} \texttt{CONTAINS} \texttt{Class} &  \\
 \cmidrule{4-4}\cmidrule{5-5}
- &  &  & Module CONTAINS Function &  \\
+ &  &  & \texttt{Module} \texttt{CONTAINS} \texttt{Function} &  \\
 \cmidrule{4-4}\cmidrule{5-5}
- &  &  & Module CONTAINS Variable &  \\
+ &  &  & \texttt{Module} \texttt{CONTAINS} \texttt{Variable} &  \\
 \cmidrule{4-4}\cmidrule{5-5}
- &  &  & Class CONTAINS Method &  \\
+ &  &  & \texttt{Class} \texttt{CONTAINS} \texttt{Method} &  \\
 \cmidrule{4-4}\cmidrule{5-5}
- &  &  & Class CONTAINS Variable &  \\
+ &  &  & \texttt{Class} \texttt{CONTAINS} \texttt{Variable} &  \\
 \cmidrule{4-4}\cmidrule{5-5}
- &  &  & Function CONTAINS Variable &  \\
+ &  &  & \texttt{Function} \texttt{CONTAINS} \texttt{Variable} &  \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- & Parameter & TAKES & Function TAKES Class &  \\
+ & Parameter & \texttt{TAKES} & \texttt{Function} \texttt{TAKES} \texttt{Class} &  \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- & Return & RETURNS & Function RETURNS Class &  \\
+ & Return & \texttt{RETURNS} & \texttt{Function} \texttt{RETURNS} \texttt{Class} &  \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- & Instantiation & INSTANTIATES & Class INSTANTIATES Variable &  \\
+ & Instantiation & \texttt{INSTANTIATES} & \texttt{Class} \texttt{INSTANTIATES} \texttt{Variable} &  \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- & \multirow{3}{*}{Utilization \bigstrut} & \multirow{3}{*}{USES \bigstrut} & Module USES Variable &  \\
+ & \multirow{3}[{6}]{*}{Utilization} & \multirow{3}[{6}]{*}{\texttt{USES}} & \texttt{Module} \texttt{USES} \texttt{Variable} &  \\
 \cmidrule{4-4}\cmidrule{5-5}
- &  &  & Class USES Variable &  \\
+ &  &  & \texttt{Class} \texttt{USES} \texttt{Variable} &  \\
 \cmidrule{4-4}\cmidrule{5-5}
- &  &  & Function USES Variable &  \\
+ &  &  & \texttt{Function} \texttt{USES} \texttt{Variable} &  \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 
