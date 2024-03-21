@@ -1,42 +1,42 @@
-\begin{tabular}{p{1.6cm}p{1.7cm}p{2cm}p{3.3cm}p{7.5cm}}
+\begin{tabular}{p{1.6cm}p{2.5cm}p{2cm}p{10cm}}
 \toprule
-\textbf{Type} & \textbf{Label} & \textbf{Property} & \textbf{Data Type} & \textbf{Description} \\
-\cmidrule{1-1}\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
-\multirow{18}{*}{Entity} & \multirow{3}{*}{Module} & name & String & A string of identifier. \\
-\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- &  & qualified\_name & String & Identifier's complete path including its scope. \\
-\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- &  & file\_path & String & Code location. \\
-\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- & \multirow{4}{*}{Class} & name & String & - \\
-\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- &  & qualified\_name & String & - \\
-\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- &  & is\_abstract & Boolean & Whether if is an abstract class. \\
-\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- &  & file\_path & String & - \\
-\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- & \multirow{4}{*}{Function} & name & String & - \\
-\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- &  & qualified\_name & String & - \\
-\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- &  & type & String & One of function, method, classmethod or staticmethod. \\
-\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- &  & file\_path & String & - \\
-\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- & \multirow{3}{*}{Method (Function)} & name & String & - \\
-\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- &  & qualified\_name & String & - \\
-\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- &  & file\_path & String & - \\
-\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- & \multirow{4}{*}{Variable} & name & String & - \\
-\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- &  & qualified\_name & String & - \\
-\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- &  & access & String & One of public, protected or private. \\
-\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- &  & file\_path & String & - \\
+\textbf{Type} & \textbf{Label} & \textbf{Property} & \textbf{Description} \\
+\cmidrule{1-1}\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
+\multirow{18}{*}[-0.8cm]{Entity} & \multirow{3}{*}[-0.8cm]{Module} & name & A string of identifier. \\
+\cmidrule{3-3}\cmidrule{4-4}
+ &  & qualified\_name & Identifier's complete path including its scope. \\
+\cmidrule{3-3}\cmidrule{4-4}
+ &  & file\_path & Code location. \\
+\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
+ & \multirow{4}{*}[-0.8cm]{Class} & name & - \\
+\cmidrule{3-3}\cmidrule{4-4}
+ &  & qualified\_name & - \\
+\cmidrule{3-3}\cmidrule{4-4}
+ &  & is\_abstract & Whether if is an abstract class. \\
+\cmidrule{3-3}\cmidrule{4-4}
+ &  & file\_path & - \\
+\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
+ & \multirow{4}{*}[-0.8cm]{Function} & name & - \\
+\cmidrule{3-3}\cmidrule{4-4}
+ &  & qualified\_name & - \\
+\cmidrule{3-3}\cmidrule{4-4}
+ &  & type & One of function, method, classmethod or staticmethod. \\
+\cmidrule{3-3}\cmidrule{4-4}
+ &  & file\_path & - \\
+\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
+ & \multirow{3}{*}[-0.8cm]{Method (Function)} & name & - \\
+\cmidrule{3-3}\cmidrule{4-4}
+ &  & qualified\_name & - \\
+\cmidrule{3-3}\cmidrule{4-4}
+ &  & file\_path & - \\
+\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
+ & \multirow{4}{*}[-0.8cm]{Variable} & name & - \\
+\cmidrule{3-3}\cmidrule{4-4}
+ &  & qualified\_name & - \\
+\cmidrule{3-3}\cmidrule{4-4}
+ &  & access & One of public, protected or private. \\
+\cmidrule{3-3}\cmidrule{4-4}
+ &  & file\_path & - \\
 \bottomrule
 \end{tabular}
 
@@ -44,11 +44,11 @@
 \toprule
 \textbf{Type} & \textbf{Name} & \textbf{Label} & \textbf{Relations} & \textbf{Attributes} \\
 \cmidrule{1-1}\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
-\multirow{14}{*}{Relationship} & Call & CALLS & Function USES Function &  \\
+\multirow{14}{*}[-0.8cm]{Relationship} & Call & CALLS & Function USES Function &  \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  & Inheritance & INHERITS & Class INHERITS Class &  \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- & \multirow{6}{*}{Containment} & \multirow{6}{*}{CONTAINS} & Module CONTAINS Class &  \\
+ & \multirow{6}{*}[-0.8cm]{Containment} & \multirow{6}{*}[-0.8cm]{CONTAINS} & Module CONTAINS Class &  \\
 \cmidrule{4-4}\cmidrule{5-5}
  &  &  & Module CONTAINS Function &  \\
 \cmidrule{4-4}\cmidrule{5-5}
@@ -66,7 +66,7 @@
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  & Instantiation & INSTANTIATES & Class INSTANTIATES Variable &  \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
- & \multirow{3}{*}{Utilization} & \multirow{3}{*}{USES} & Module USES Variable &  \\
+ & \multirow{3}{*}[-0.8cm]{Utilization} & \multirow{3}{*}[-0.8cm]{USES} & Module USES Variable &  \\
 \cmidrule{4-4}\cmidrule{5-5}
  &  &  & Class USES Variable &  \\
 \cmidrule{4-4}\cmidrule{5-5}
