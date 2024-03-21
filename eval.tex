@@ -12,21 +12,21 @@
 \begin{table}[h]
 \centering
 \begin{threeparttable}
-\begin{tabular}{|p{2cm}||p{2cm}|p{2cm}|}
+\begin{tabularx}{\linewidth}{lXr}
 
-\hline
+\toprule
 \textbf{Name} & \textbf{Name} & \textbf{Amount} \\
-\hline
+\midrule
 
-\multirow{6}{*}{\href{https://github.com/huggingface/transformers}{Transformers}}   
-                                & Class  & 8,609 \\ \cline{2-3}
-                                & Function  & 24,301 \\ \cline{2-3}
-                                & Call  & 22,464 \\ \cline{2-3}
-                                & Containment  & 21,611 \\ \cline{2-3}
-                                & Inheritance  & 5,659 \\ \cline{2-3}
-                                & Return  & 1,142 \\ \cline{2-3}
-\hline
-\end{tabular}
+\multirow{6}[12]{*}{\href{https://github.com/huggingface/transformers}{Transformers}}   
+                                & Class  & 8,609 \\ \cmidrule{2-3}
+                                & Function  & 24,301 \\ \cmidrule{2-3}
+                                & Call  & 22,464 \\ \cmidrule{2-3}
+                                & Containment  & 21,611 \\ \cmidrule{2-3}
+                                & Inheritance  & 5,659 \\ \cmidrule{2-3}
+                                & Return  & 1,142 \\
+\bottomrule
+\end{tabularx}
 \caption{Knowledge graph metrics for selected projects}
 \label{tab:graph-metrics}
 \end{threeparttable}
