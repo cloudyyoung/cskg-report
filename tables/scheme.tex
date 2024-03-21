@@ -2,7 +2,7 @@
 \toprule
 \textbf{Type} & \textbf{Label} & \textbf{Property} & \textbf{Description} \\
 \cmidrule{1-1}\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
-\multirow{18}[36]{*}{Entity} & \multirow{3}[6]{*}{\texttt{Module}} & \texttt{name} & A string of identifier. \\
+\multirow{19}[38]{*}{Entity} & \multirow{3}[6]{*}{\texttt{Module}} & \texttt{name} & A string of identifier. \\
 \cmidrule{3-3}\cmidrule{4-4}
  &  & \texttt{qualified\_\texttt{name}} & Identifier's complete path including its scope. \\
 \cmidrule{3-3}\cmidrule{4-4}
@@ -20,13 +20,15 @@
 \cmidrule{3-3}\cmidrule{4-4}
  &  & \texttt{qualified\_\texttt{name}} & Identifier's complete path including its scope. \\
 \cmidrule{3-3}\cmidrule{4-4}
- &  & type & One of \texttt{function}, \texttt{method}, \texttt{class\texttt{method}} or \texttt{static\texttt{method}}. \\
+ &  & \texttt{subtype} & One of \texttt{function}, \texttt{method}, \texttt{class\texttt{method}} or \texttt{static\texttt{method}}. \\
 \cmidrule{3-3}\cmidrule{4-4}
  &  & \texttt{file\_path} & Code location. \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
- & \multirow{3}[6]{*}{\texttt{Method} (\texttt{Function})} & \texttt{name} & A string of identifier. \\
+ & \multirow{4}[8]{*}{\texttt{Method} (\texttt{Function})} & \texttt{name} & A string of identifier. \\
 \cmidrule{3-3}\cmidrule{4-4}
  &  & \texttt{qualified\_\texttt{name}} & Identifier's complete path including its scope. \\
+\cmidrule{3-3}\cmidrule{4-4}
+ &  & \texttt{subtype} & One of \texttt{function}, \texttt{method}, \texttt{class\texttt{method}} or \texttt{static\texttt{method}}. \\
 \cmidrule{3-3}\cmidrule{4-4}
  &  & \texttt{file\_path} & Code location. \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
