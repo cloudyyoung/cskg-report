@@ -30,33 +30,42 @@
 \cline{1-1}\cline{2-2}\cline{3-3}\cline{4-4}\cline{5-5}
  &  &  &  &  \\
 \cline{1-1}\cline{2-2}\cline{3-3}\cline{4-4}\cline{5-5}
-\textbf{Type} & \textbf{Label} & \textbf{Property} & \textbf{Description} &  \\
-\cline{1-1}\cline{2-2}\cline{3-3}\cline{4-4}\cline{5-5}
-\multirow{13}{*}{Entity} & \multirow{3}{*}{Module} & name & A string of identifier. &  \\
-\cline{3-3}\cline{4-4}\cline{5-5}
- &  & qualified\_name & Identifier's complete path including its scope. &  \\
-\cline{3-3}\cline{4-4}\cline{5-5}
- &  & file\_path & Code location. &  \\
-\cline{2-2}\cline{3-3}\cline{4-4}\cline{5-5}
- & \multirow{4}{*}{Class} & name & - &  \\
-\cline{3-3}\cline{4-4}\cline{5-5}
- &  & qualified\_name & - &  \\
-\cline{3-3}\cline{4-4}\cline{5-5}
- &  & is\_abstract & Whether if is an abstract class. &  \\
-\cline{3-3}\cline{4-4}\cline{5-5}
- &  & file\_path & - &  \\
-\cline{2-2}\cline{3-3}\cline{4-4}\cline{5-5}
- & \multirow{3}{*}{Function} & name & - &  \\
-\cline{3-3}\cline{4-4}\cline{5-5}
- &  & qualified\_name & - &  \\
-\cline{3-3}\cline{4-4}\cline{5-5}
- &  & file\_path & - &  \\
-\cline{2-2}\cline{3-3}\cline{4-4}\cline{5-5}
- & \multirow{3}{*}{Method} & name & - &  \\
-\cline{3-3}\cline{4-4}\cline{5-5}
- &  & qualified\_name & - &  \\
-\cline{3-3}\cline{4-4}\cline{5-5}
- &  & file\_path & - &  \\
-\cline{1-1}\cline{2-2}\cline{3-3}\cline{4-4}\cline{5-5}
 \hline
 \end{tabular}
+
+\begin{tabular}{llll}
+\hline
+\hline
+\textbf{Type} & \textbf{Name} & \textbf{Label} & \textbf{Relations} \\
+\cline{1-1}\cline{2-2}\cline{3-3}\cline{4-4}
+\multirow{14}{*}{Relationship} & Call & CALLS & Function USES Function \\
+\cline{2-2}\cline{3-3}\cline{4-4}
+ & Inheritance & INHERITS & Class INHERITS Class \\
+\cline{2-2}\cline{3-3}\cline{4-4}
+ & \multirow{6}{*}{Containment} & \multirow{6}{*}{CONTAINS} & Module CONTAINS Class \\
+\cline{4-4}
+ &  &  & Module CONTAINS Function \\
+\cline{4-4}
+ &  &  & Module CONTAINS Variable \\
+\cline{4-4}
+ &  &  & Class CONTAINS Method \\
+\cline{4-4}
+ &  &  & Class CONTAINS Variable \\
+\cline{4-4}
+ &  &  & Function CONTAINS Variable \\
+\cline{2-2}\cline{3-3}\cline{4-4}
+ & Parameter & TAKES & Function TAKES Class \\
+\cline{2-2}\cline{3-3}\cline{4-4}
+ & Return & RETURNS & Function RETURNS Class \\
+\cline{2-2}\cline{3-3}\cline{4-4}
+ & Instantiation & INSTANTIATES & Class INSTANTIATES Variable \\
+\cline{2-2}\cline{3-3}\cline{4-4}
+ & \multirow{3}{*}{Utilization} & \multirow{3}{*}{USES} & Module USES Variable \\
+\cline{4-4}
+ &  &  & Class USES Variable \\
+\cline{4-4}
+ &  &  & Function USES Variable \\
+\cline{1-1}\cline{2-2}\cline{3-3}\cline{4-4}
+\hline
+\end{tabular}
+
