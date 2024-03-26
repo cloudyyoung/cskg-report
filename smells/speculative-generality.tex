@@ -27,7 +27,7 @@ MATCH (a:Class {is_abstract: true})
 OPTIONAL MATCH (a)<-[:INHERITS]-(inheriting_class)
 WITH a, 
      COUNT(inheriting_class) AS inherits_count
-WHERE inheritsCount <= 1
+WHERE inherits_count <= 1
 RETURN a.name AS class_name, 
        inherits_count
 \end{minted}
