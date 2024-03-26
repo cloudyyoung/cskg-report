@@ -2,13 +2,15 @@
 \toprule
 \textbf{Type} & \textbf{Label} & \textbf{Property} & \textbf{Description} \\
 \cmidrule{1-1}\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
-\multirow{10}[20]{*}{Entity} & \multirow{3}[6]{*}{\textsf{Module}} & \textsf{name} & The entity identifier. \\
+\multirow{11}[22]{*}{Entity} & \multirow{3}[6]{*}{\textsf{Module}} & \textsf{name} & The entity identifier. \\
 \cmidrule{3-3}\cmidrule{4-4}
  &  & \textsf{qualified\_\textsf{name}} & The entity's complete identifier which includes its scope. \\
 \cmidrule{3-3}\cmidrule{4-4}
  &  & \textsf{file\_path} & The file location of the entity. \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
- & \textsf{Class} & \multicolumn{2}{l}{\textit{(\textsf{name}, \textsf{qualified\_\textsf{name}} and \textsf{file\_path} as previous)}} \\
+ & \multirow{2}[4]{*}{\textsf{Class}} & \textsf{is\_abstract} & Whether if the class is an abstract class. \\
+\cmidrule{3-3}\cmidrule{4-4}
+ &  & \multicolumn{2}{l}{\textit{(\textsf{name}, \textsf{qualified\_\textsf{name}} and \textsf{file\_path} as previous)}} \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
  & \multirow{2}[4]{*}{\textsf{Function}} & \textsf{subtype} & One of \textsf{function}, \textsf{method}, \textsf{class\textsf{method}} or \textsf{static\textsf{method}}. \\
 \cmidrule{3-3}\cmidrule{4-4}
