@@ -2,7 +2,7 @@
 \toprule
 \textbf{Type} & \textbf{Label} & \textbf{Property} & \textbf{Description} \\
 \cmidrule{1-1}\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
-\multirow{11}[22]{*}{Entity} & \multirow{3}[6]{*}{\textsf{Module}} & \textsf{name} & The entity identifier. \\
+\multirow{13}[26]{*}{Entity} & \multirow{3}[6]{*}{\textsf{Module}} & \textsf{name} & The entity identifier. \\
 \cmidrule{3-3}\cmidrule{4-4}
  &  & \textsf{qualified\_\textsf{name}} & The entity's complete identifier which includes its scope. \\
 \cmidrule{3-3}\cmidrule{4-4}
@@ -16,13 +16,17 @@
 \cmidrule{3-3}\cmidrule{4-4}
  &  & \multicolumn{2}{l}{\textit{(\textsf{name}, \textsf{qualified\_\textsf{name}} and \textsf{file\_path} as previous)}} \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
- & \multirow{2}[4]{*}{\textsf{Method} (\textsf{Function})} & \textsf{subtype} & One of \textsf{method}, \textsf{class\textsf{method}} or \textsf{static\textsf{method}}. \\
+ & \multirow{3}[6]{*}{\textsf{Method} (\textsf{Function})} & \textsf{is\_abstract} & Whether if the class is an abstract \textsf{method}. \\
+\cmidrule{3-3}\cmidrule{4-4}
+ &  & \textsf{subtype} & One of \textsf{method}, \textsf{class\textsf{method}} or \textsf{static\textsf{method}}. \\
 \cmidrule{3-3}\cmidrule{4-4}
  &  & \multicolumn{2}{l}{\textit{(\textsf{name}, \textsf{qualified\_\textsf{name}} and \textsf{file\_path} as previous)}} \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
  & \multirow{2}[4]{*}{\textsf{Variable}} & \textsf{access} & One of \textsf{public}, \textsf{protected} or \textsf{private}. \\
 \cmidrule{3-3}\cmidrule{4-4}
  &  & \multicolumn{2}{l}{\textit{(\textsf{name}, \textsf{qualified\_\textsf{name}} and \textsf{file\_path} as previous)}} \\
+\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
+ & External & \multicolumn{2}{l}{\textit{(Attach to other entity labels)}} \\
 \bottomrule
 \end{tabularx}
 
