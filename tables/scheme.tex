@@ -36,11 +36,11 @@
 \toprule
 \textbf{Type} & \textbf{Name} & \textbf{Label} & \textbf{Relations} & \textbf{Property} \\
 \cmidrule{1-1}\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
-\multirow{13}[26]{*}{Relationship} & Call & \textsf{CALLS} & \textsf{Function} (or \textsf{Method}) \textsf{CALLS} \textsf{Function} (or \textsf{Method}) & \textsf{arguments} \\
+\multirow{14}[28]{*}{Relationship} & Call & \textsf{CALLS} & \textsf{Function} (or \textsf{Method}) \textsf{CALLS} \textsf{Function} (or \textsf{Method}) & \textsf{arguments} \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  & Inheritance & \textsf{INHERITS} & \textsf{Class} \textsf{INHERITS} \textsf{Class} &  \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
- & \multirow{6}[12]{*}{Containment} & \multirow{6}[12]{*}{\textsf{CONTAINS}} & \textsf{Module} \textsf{CONTAINS} \textsf{Class} &  \\
+ & \multirow{7}[14]{*}{Containment} & \multirow{7}[14]{*}{\textsf{CONTAINS}} & \textsf{Module} \textsf{CONTAINS} \textsf{Class} &  \\
 \cmidrule{4-4}
  &  &  & \textsf{Module} \textsf{CONTAINS} \textsf{Function} &  \\
 \cmidrule{4-4}
@@ -51,6 +51,8 @@
  &  &  & \textsf{Class} \textsf{CONTAINS} \textsf{Variable} &  \\
 \cmidrule{4-4}
  &  &  & \textsf{Function} \textsf{CONTAINS} \textsf{Variable} &  \\
+\cmidrule{4-4}
+ &  &  & \textsf{Function} \textsf{CONTAINS} \textsf{Function} &  \\
 \cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
  & \multirow{2}[4]{*}{Parameter} & \multirow{2}[4]{*}{\textsf{TAKES}} & \multirow{2}[4]{*}{\textsf{Function} (or \textsf{Method}) \textsf{TAKES} \textsf{Class}} & \textsf{param\_\textsf{name}} \\
 \cmidrule{5-5}

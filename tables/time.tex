@@ -1,0 +1,26 @@
+\begin{tabularx}{\textwidth}{p{2.4cm}p{2.4cm}Xp{1cm}p{1cm}}
+\toprule
+\textbf{Codebase} & \multicolumn{2}{l}{\textbf{Process}} & \multicolumn{2}{l}{\textbf{Average Time Elapsed}} \\
+\cmidrule{1-1}\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
+\multirow{5}[10]{*}{Transformers} & \multirow{3}[6]{*}{Transformation} & Caching all files into Astroid manager & 00:08:12 & \multirow{5}[10]{*}{01:02:24} \\
+\cmidrule{3-3}\cmidrule{4-4}
+ &  &  Visiting and extract entities and relationships with metadata & 00:53:08 &  \\
+\cmidrule{3-3}\cmidrule{4-4}
+ &  & Composing knowledge graph & 00:02:06 &  \\
+\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
+ & \multirow{2}[4]{*}{Detection} & Building FP-tree & 00:01:42 &  \\
+\cmidrule{3-3}\cmidrule{4-4}
+ &  & Building conditional FP-tree for frequent items & 00:12:40 &  \\
+\cmidrule{1-1}\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}\cmidrule{5-5}
+\multirow{5}[10]{*}{Pytorch} & \multirow{3}[6]{*}{Transformation} & Caching all files into Astroid manager & 00:14:53 & \multirow{5}[10]{*}{01:49:26} \\
+\cmidrule{3-3}\cmidrule{4-4}
+ &  &  Visiting and extract entities and relationships with metadata & 01:19:23 &  \\
+\cmidrule{3-3}\cmidrule{4-4}
+ &  & Composing knowledge graph & 00:02:49 &  \\
+\cmidrule{2-2}\cmidrule{3-3}\cmidrule{4-4}
+ & \multirow{2}[4]{*}{Detection} & Building FP-tree & 00:01:37 &  \\
+\cmidrule{3-3}\cmidrule{4-4}
+ &  & Building conditional FP-tree for frequent items & 00:10:44 &  \\
+\bottomrule
+\end{tabularx}
+
